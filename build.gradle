@@ -274,7 +274,7 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:patchouli-306770:6164575")
 //    runtimeOnly fg.deobf("curse.maven:geckolib-388172:6789487")
 
-    compileOnly fg.deobf("curse.maven:cold-sweat-506194:6503192")
+    compileOnly fg.deobf("curse.maven:cold-sweat-506194:7370183")
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:cold-sweat-506194:6503192")
     compileOnly fg.deobf("curse.maven:dynamictrees-252818:6655713")
     compileOnly fg.deobf("curse.maven:in-control-257356:6932951")
