@@ -1,4 +1,3 @@
-since version 0.12.1+, we need neoforge above 21.1.195
+Thanks to MikulDev for the #19 update Cold Sweat support.
 
-fixed #17 
-Using this mod resulted in the colony AI not working and frequent backend errors
+Updated the annotation data list to match changes introduced in ModernFix 5.26.1.

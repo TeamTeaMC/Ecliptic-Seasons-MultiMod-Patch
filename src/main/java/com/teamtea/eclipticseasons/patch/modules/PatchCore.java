@@ -41,8 +41,8 @@ public class PatchCore {
             if (!$.annotationType().getClassName().equals(ESPatch.class.getName())) {
                 return false;
             } else {
-                List<String> required = (ArrayList<String>) $.annotationData().getOrDefault("mods", new ArrayList<>());
-                List<String> minVersions = (ArrayList<String>) $.annotationData().getOrDefault("minVersions", new ArrayList<>());
+                List<String> required = (List<String>) $.annotationData().getOrDefault("mods", new ArrayList<>());
+                List<String> minVersions = (List<String>) $.annotationData().getOrDefault("minVersions", new ArrayList<>());
                 boolean shouldTryLoad = modIdSet.containsAll(required);
                 if (shouldTryLoad && !minVersions.isEmpty()
                         && required.size() == minVersions.size()) {
