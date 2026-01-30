@@ -1,1 +1,3 @@
-fix #17 Using this mod resulted in the colony AI not working and frequent backend errors
+Thanks to MikulDev for the #19 update Cold Sweat support.
+
+Updated the annotation data list to match changes introduced in ModernFix 5.26.1.
