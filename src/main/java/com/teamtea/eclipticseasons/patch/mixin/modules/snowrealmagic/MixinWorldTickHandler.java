@@ -13,6 +13,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.LevelChunk;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,13 +35,13 @@ public abstract class MixinWorldTickHandler {
         return original.call(instance, pos);
     }
 
-    @WrapOperation(at = {@At(value = "INVOKE", target = "Lsnownee/snow/util/CommonProxy;coldEnoughToSnow(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Holder;)Z")},
+    @WrapOperation(at = {@At(value = "INVOKE", target = "Lsnownee/snow/util/CommonProxy;coldEnoughToSnow(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Holder;)Z")},
             remap = false,method = {"tick"})
-    private static boolean eclipticseasons$tick_coldEnoughToSnow(Level level, BlockPos pos, Holder<Biome> biome, Operation<Boolean> original) {
-        if (SRM.Config.enable.get()) {
-            var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(level, pos);
+    private static boolean eclipticseasons$tick_coldEnoughToSnow(LevelReader level, BlockPos pos, Holder<Biome> biome, Operation<Boolean> original) {
+        if (SRM.Config.enable.get()&& level instanceof Level l) {
+            var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(l, pos);
             return es_snowStatus == Biome.Precipitation.SNOW
-                    || CustomRandomTickHandler.isColdBiome(level, biome.value());
+                    || CustomRandomTickHandler.isColdBiome(l, biome.value());
         }
         return original.call(level, pos, biome);
     }
