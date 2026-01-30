@@ -227,7 +227,7 @@ dependencies {
     compileOnly "curse.maven:xaeros-world-map-317780:6778114"
     implementation "curse.maven:xaeros-minimap-263420:6778051"
 
-    compileOnly "curse.maven:snow-real-magic-308663:6783557"
+    compileOnly "curse.maven:snow-real-magic-308663:7472610"
 
     println("----Scan onlyMainRuntimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
