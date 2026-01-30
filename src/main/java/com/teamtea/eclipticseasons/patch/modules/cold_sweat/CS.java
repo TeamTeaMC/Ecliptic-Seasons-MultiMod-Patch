@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.List;
 
-@ESPatch(mods = "cold_sweat")
+@ESPatch(mods = "cold_sweat",minVersions = "2.4-b06e")
 public class CS implements IESModPatch {
 
     @Override
