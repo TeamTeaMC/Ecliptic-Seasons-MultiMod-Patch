@@ -192,7 +192,7 @@ dependencies {
 
     compileOnly "curse.maven:minecolonies-245506:6844367"
 
-    compileOnly "curse.maven:dynamictrees-252818:6611182"
+    compileOnly "curse.maven:dynamictrees-252818:7513464"
     onlyMainRuntimeOnly "curse.maven:dynamictrees-252818:6611182"
 
 //    onlyMainRuntimeOnly "curse.maven:diagonal-fences-458048:5918197"
