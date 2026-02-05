@@ -1,0 +1,37 @@
+package com.teamtea.eclipticseasons_patch.modules.fetzisasiandeco;
+
+import com.teamtea.eclipticseasons_patch.api.ESPatch;
+import com.teamtea.eclipticseasons_patch.api.IESModPatch;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.IEventBus;
+
+@ESPatch(mods = "fetzisasiandeco",esVersion = "0.12.0-pre15")
+public class FAD implements IESModPatch {
+
+    @Override
+    public void common(ForgeConfigSpec.Builder consumer) {
+        Config.load(consumer);
+    }
+
+    @Override
+    public void register(IEventBus gameBus, IEventBus modEventBus) {
+        gameBus.register(FetzisHandler.INSTANCE);
+    }
+
+    public static class Config {
+
+        public static ForgeConfigSpec.BooleanValue enable;
+        // public static ModConfigSpec.BooleanValue windows;
+
+        public static void load(ForgeConfigSpec.Builder builder) {
+            builder.comment("Fetzi's Asian Decoration").push("fetzisasiandeco");
+            enable = builder
+                    .comment("Here, automatic snow-covered model compatibility has been added for certain blocks from Fetzi's Asian Decoration. At the moment, this is only a compromise solution.")
+                    .define("Enable", true);
+            // fence = builder.define("fence", true);
+            // wall = builder.define("wall", true);
+            // windows = builder.define("windows", true);
+            builder.pop();
+        }
+    }
+}

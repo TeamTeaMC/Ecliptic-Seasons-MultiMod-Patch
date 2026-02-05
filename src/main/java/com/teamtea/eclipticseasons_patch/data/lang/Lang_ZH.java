@@ -1,0 +1,122 @@
+package com.teamtea.eclipticseasons_patch.data.lang;
+
+
+import com.teamtea.eclipticseasons.data.general.lang.LangHelper;
+import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
+import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.ExistingFileHelper;
+
+
+public class Lang_ZH extends LangHelper {
+    public Lang_ZH(PackOutput gen, ExistingFileHelper helper) {
+        super(gen, helper, EclipticSeasonsPatch.MODID, "zh_cn");
+    }
+
+
+    @Override
+    protected void addTranslations() {
+        addTouhouLittleMaid();
+        addConfigLang();
+        addFeyWild();
+        addErrorLang();
+        addSomeInfo();
+    }
+
+    private void addSomeInfo() {
+        add("info.eclipticseasons_multimodpatch.stardew_fishing.bad_weather", "天气很坏，因此无法捕鱼！");
+        add("info.eclipticseasons_multimodpatch.stardew_fishing.not_fishing_seasons", "现在是休渔期！");
+    }
+
+    private void addFeyWild() {
+        add("quest.eclipticseasons_multimodpatch.spring.spring_core.start.title", "春之初");
+        add("quest.eclipticseasons_multimodpatch.spring.spring_core.start.description",
+                "这是个充满魔力的季节!$(n)"
+                        + "万物复苏，小草在耳语，花朵在跳舞!$(n)"
+                        + "$(n)"
+                        + "快去收集 $(spring)64 个春季作物种子$()吧！$(n)"
+                        + "也许它们会在你耳边讲述冬天的梦...");
+
+        add("quest.eclipticseasons_multimodpatch.spring.spring_core.complete.title", "春之舞");
+        add("quest.eclipticseasons_multimodpatch.spring.spring_core.complete.description",
+                "啊哈！你完成了春季的播种挑战！$(n)"
+                        + "$(spring)春之心髓$()会作为你的礼物，闪耀着生命的希望。$(n)"
+                        + "那些嫩芽、那些微风…它们都记得你曾来过.$(n)"
+                        + "$(n)"
+                        + "$(spring)春之舞$()，从此刻开始。");
+
+        add("quest.eclipticseasons_multimodpatch.summer.summer_core.start.title", "夏之初");
+        add("quest.eclipticseasons_multimodpatch.summer.summer_core.start.description",
+                "你听到了吗？那些种子在土壤中轻声细语...$(n)"
+                        + "—— 这是 $(summer)夏之初$()，它正呼唤着你的双手去播种、收割！$(n)"
+                        + "$(n)"
+                        + "如果你能收获 $(summer)64 个夏季作物种子$()，我会为你准备一份特别的奖励.$(n)"
+                        + "太阳已经升起，冒险者... 你准备好迎接烈日下的考验了吗？");
+
+        add("quest.eclipticseasons_multimodpatch.summer.summer_core.complete.title", "夏之挽");
+        add("quest.eclipticseasons_multimodpatch.summer.summer_core.complete.description",
+                "你做到了!$(n)"
+                        + "64 粒种子在你手中跳跃，仿佛整个 $(summer)夏季$()都为你喝彩！$(n)"
+                        + "$(n)"
+                        + "作为奖赏，你将获得 $(summer)夏季温室心髓$()——盛满阳光的宝物。$(n)"
+                        + "它是 $(summer)夏之挽$()，记录着你曾播种、流汗、收获的每一刻.$(n)"
+                        + "这是你与夏日签下的盟约，也是你努力的见证。");
+
+        add("quest.eclipticseasons_multimodpatch.autumn.autumn_core.start.title", "秋之契");
+        add("quest.eclipticseasons_multimodpatch.autumn.autumn_core.start.description",
+                "落叶飘零，风吹过田野，带来丰收的歌谣。$(n)"
+                        + "你准备好迎接 $(autumn)秋之契约$()了吗？$(n)"
+                        + "$(n)"
+                        + "去吧，收集 $(autumn)64 个秋季作物种子$()。$(n)"
+                        + "让这片土地在你的指尖下进入它的黄金时代。");
+
+        add("quest.eclipticseasons_multimodpatch.autumn.autumn_core.complete.title", "秋之实");
+        add("quest.eclipticseasons_multimodpatch.autumn.autumn_core.complete.description",
+                "金黄的田野向你致敬，秋风唱着感激的旋律。$(n)"
+                        + "你完成了 $(autumn)秋季$()的试炼，收获了它最美的馈赠。$(n)"
+                        + "$(n)"
+                        + "这是 $(autumn)秋之实$()，沉甸甸的心髓，是自然的礼赞。$(n)"
+                        + "请收下这份由你亲手播下、又亲手收割的荣耀。");
+
+        add("quest.eclipticseasons_multimodpatch.winter.winter_core.start.title", "冬之眠");
+        add("quest.eclipticseasons_multimodpatch.winter.winter_core.start.description",
+                "白雪覆盖了大地，却也为新生留出空白。$(n)"
+                        + "这是一场静谧中的挑战——你能唤醒 $(winter)冬之沉眠$()吗？$(n)"
+                        + "$(n)"
+                        + "收集 $(winter)64 个冬季作物种子$()，为寒冷中的生命种下希望。$(n)"
+                        + "在最冷的季节，播种最温暖的光。");
+
+        add("quest.eclipticseasons_multimodpatch.winter.winter_core.complete.title", "冬之命");
+        add("quest.eclipticseasons_multimodpatch.winter.winter_core.complete.description",
+                "在霜雪中，你没有退缩。$(n)"
+                        + "你唤醒了冬眠的大地，让种子在冷风中低语。$(n)"
+                        + "$(n)"
+                        + "$(winter)冬季温室心髓$()现在属于你，它蕴含着寒冬深处的生机.$(n)"
+                        + "这是 $(winter)冬之命脉$()，是你静静耕耘后的勋章。");
+    }
+
+    private void addTouhouLittleMaid() {
+        add("task.eclipticseasons_multimodpatch.clean_snow", "扫雪");
+        add("task.eclipticseasons_multimodpatch.clean_snow.desc", "适用于节气的覆雪方块");
+        add("task.eclipticseasons_multimodpatch.clean_snow.condition.has_broom", "持有扫帚");
+        add("task.eclipticseasons_multimodpatch.clean_snow.condition.broom_work", "雪会落到世界上");
+    }
+
+
+    private void addErrorLang() {
+        add("error.eclipticseasons_multimodpatch.version.eclipticseasons.min",
+                "§f[Ecliptic Seasons (节气)] 版本不兼容！修补模块 §e%s§f 需要 Ecliptic Seasons 版本 §a%s§f 或更高（当前为 §c%s§f）§r");
+
+        add("error.eclipticseasons_multimodpatch.version.mods.min",
+                "§f[Patch Module] %s 前置版本不兼容！需要 §a%s§f 或更高版本（当前为 §e%s§f）§r");
+
+    }
+
+    private void addConfigLang() {
+
+
+    }
+
+
+
+
+}

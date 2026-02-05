@@ -1,5 +1,3 @@
-Thanks to MikulDev for the #19 update Cold Sweat support.
+Change the package name to `com.teamtea.eclipticseasons_patch` instead of `com.teamtea.eclipticseasons.patch` to avoid incorrect package resolution when both the main mod and this patch are imported in the development environment.
 
-Updated the annotation data list to match changes introduced in ModernFix 5.26.1.
-
-Update mixins for Snow Real Magic.
+ 
