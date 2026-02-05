@@ -276,7 +276,7 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:cold-sweat-506194:7370183")
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:cold-sweat-506194:7370183")
-    compileOnly fg.deobf("curse.maven:dynamictrees-252818:6655713")
+    compileOnly fg.deobf("curse.maven:dynamictrees-252818:7502488")
     compileOnly fg.deobf("curse.maven:in-control-257356:6932951")
     onlyMainRuntimeOnly fg.deobf("curse.maven:in-control-257356:6932951")
 
