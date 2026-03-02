@@ -23,7 +23,6 @@ A collection of mixins for mod compatibility with Ecliptic Seasons.
 | *Cold Sweat*         | ✔️     | ✔️     | Adds seasonal temperature variation and fixes rainfall calculation.                                                       |
 | *Dynamic Trees*      | ✔️     | ✔️     | Adds a seasonal provider; tree growth now follows seasonal growth cycles.                                                 |
 | *Haunted Harvest*    | ✔️     | ✔️     | Enables Halloween and pumpkin zombie seasonal events.                                                                     |
-| *Fey Wild*           | ➖      | ✔️     | Adds four new seasonal quests to obtain the essence item.                                                                 |
 | *Minecolonies*       | ✔️     | ✔️     | Dynamically adjusts citizens' sleep time according to the season.                                                         |
 | *Ambient Sounds*     | ❌️     | ✔️     | Adapts biome temperature, thunder, and snowfall calculations.                                                             |
 | *Touhou Little Maid* | ✔️     | ✔️     | Allows the maid to sweep snowy blocks.                                                                                    |

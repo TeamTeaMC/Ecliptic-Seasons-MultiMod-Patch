@@ -25,10 +25,6 @@ public class PatchData {
             generator.addProvider(event.includeClient(), new Lang_ZH(packOutput, helper));
         }
 
-        // Fey Wild
-        packOutput = packOutput.move(PackageUtil.getPackPath("feywild"));
-        if (event.includeServer()) {
-            // generator.addProvider(event.includeServer(), new CQuestProvider(packOutput, helper));
-        }
+
     }
 }
