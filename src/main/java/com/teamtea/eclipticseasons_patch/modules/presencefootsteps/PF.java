@@ -4,7 +4,7 @@ import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-@ESPatch(mods = "presencefootsteps")
+@ESPatch(mods = "presencefootsteps", clientOnly = true)
 public class PF implements IESModPatch {
 
     @Override

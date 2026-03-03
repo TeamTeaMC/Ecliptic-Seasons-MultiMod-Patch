@@ -15,7 +15,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.Tags;
 
-@ESPatch(mods = PR.MOD_ID, minVersions = "0.12.0-pre11-1")
+@ESPatch(mods = PR.MOD_ID, minVersions = "0.12.0-pre11-1", clientOnly = true)
 public class PR implements IESModPatch {
     public static final String MOD_ID = "particlerain";
 

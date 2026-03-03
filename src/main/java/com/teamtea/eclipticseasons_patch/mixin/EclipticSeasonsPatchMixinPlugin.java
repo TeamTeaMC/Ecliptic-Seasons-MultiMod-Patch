@@ -1,5 +1,6 @@
 package com.teamtea.eclipticseasons_patch.mixin;
 
+import com.teamtea.eclipticseasons_patch.api.PreloadedConfig;
 import net.minecraftforge.fml.loading.FMLLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -9,12 +10,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-public class EclipticSeasonsPatchMixinPlugin  implements IMixinConfigPlugin {
+public class EclipticSeasonsPatchMixinPlugin implements IMixinConfigPlugin {
     public static final String MIXIN_COMPAT_PACKAGE = "mixin.modules.";
 
     @Override
     public void onLoad(String mixinPackage) {
-
+        PreloadedConfig.onLoad(mixinPackage);
     }
 
     @Override
@@ -28,7 +29,8 @@ public class EclipticSeasonsPatchMixinPlugin  implements IMixinConfigPlugin {
         if (st > -1) {
             String sub = Arrays.stream(mixinClassName.split(MIXIN_COMPAT_PACKAGE)).toList().get(1);
             String modid = Arrays.stream(sub.split("\\.")).toList().get(0);
-            return FMLLoader.getLoadingModList().getModFileById(modid) != null;
+            return FMLLoader.getLoadingModList().getModFileById(modid) != null
+                    && PreloadedConfig.shouldApply(modid);
         }
         return true;
     }

@@ -1,9 +1,12 @@
 package com.teamtea.eclipticseasons_patch.config;
 
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
+import com.teamtea.eclipticseasons_patch.api.LangUtil;
 import com.teamtea.eclipticseasons_patch.modules.PatchCore;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
+
+import java.util.List;
 
 public class PatchCommonConfig {
     public static final ForgeConfigSpec COMMON_CONFIG = new ForgeConfigSpec.Builder().configure(PatchCommonConfig::new).getRight();
@@ -11,6 +14,13 @@ public class PatchCommonConfig {
     protected PatchCommonConfig(ForgeConfigSpec.Builder builder) {
         for (IESModPatch modPlugin : PatchCore.MOD_PLUGINS) {
             modPlugin.common(builder);
+        }
+        for (String modid : PatchCore.MOD_DISABLED) {
+            builder.comment(LangUtil.getModName(modid));
+            builder.push(modid);
+            builder.comment("Set false to completely disable this module");
+            builder.define("Enable", false);
+            builder.pop();
         }
     }
 

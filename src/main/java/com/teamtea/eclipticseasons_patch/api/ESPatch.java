@@ -1,5 +1,7 @@
 package com.teamtea.eclipticseasons_patch.api;
 
+import net.minecraftforge.fml.config.ModConfig;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -13,4 +15,6 @@ public @interface ESPatch {
     String[] minVersions() default {};
 
     String esVersion() default "";
+
+    boolean clientOnly() default false;
 }

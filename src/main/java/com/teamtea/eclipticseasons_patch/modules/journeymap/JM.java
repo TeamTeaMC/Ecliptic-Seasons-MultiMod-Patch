@@ -4,7 +4,7 @@ import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-@ESPatch(mods = "journeymap")
+@ESPatch(mods = "journeymap", clientOnly = true)
 public class JM implements IESModPatch {
 
     @Override
