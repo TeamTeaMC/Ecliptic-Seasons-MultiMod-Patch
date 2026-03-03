@@ -6,6 +6,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 @ESPatch(mods = "touhou_little_maid", esVersion = "0.12.0-pre13")
 public class TLM implements IESModPatch {
+    public static final String MOD_ID = "touhou_little_maid";
 
     @Override
     public void common(ForgeConfigSpec.Builder consumer) {
