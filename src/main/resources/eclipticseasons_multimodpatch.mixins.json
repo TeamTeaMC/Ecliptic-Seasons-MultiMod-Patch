@@ -33,6 +33,8 @@
     "modules.snowyspirit.MixinSnowySpirit",
     "modules.snowyspirit.MixinSnowySpiritGroundStatus",
     "modules.stardew_fishing.MixinFishingHookLogic",
+    "modules.subtle_effects.MixinBundles$ExtraFireflyManager",
+    "modules.subtle_effects.MixinBundles$ExtraFrostyBreathTicker",
     "modules.xaerominimap.MixinMinimapWriter",
     "modules.xaeroworldmap.MixinMapPixel"
   ],

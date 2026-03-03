@@ -301,11 +301,13 @@ dependencies {
     compileOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
     onlyMainRuntimeOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
 
-    implementation fg.deobf("curse.maven:xaeros-minimap-263420:6778028")
-    implementation fg.deobf("curse.maven:xaeros-world-map-317780:6778091")
+    compileOnly fg.deobf("curse.maven:xaeros-minimap-263420:6778028")
+    compileOnly fg.deobf("curse.maven:xaeros-world-map-317780:6778091")
 
     implementation fg.deobf("curse.maven:snow-real-magic-308663:7472648")
     implementation fg.deobf("curse.maven:kiwi-303657:7514218")
+
+    compileOnly fg.deobf("maven.modrinth:subtle-effects:Ci8SWnwn")
 
     println("----Scan libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
