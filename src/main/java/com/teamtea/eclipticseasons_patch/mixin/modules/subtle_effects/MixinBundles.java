@@ -21,8 +21,8 @@ public abstract class MixinBundles {
 
     @Mixin({FireflyManager.class})
     public static abstract class ExtraFireflyManager {
-        @Inject(at = {@At(value = "INVOKE", target = "Ljava/util/Optional;isEmpty()Z")},
-                method = {"tick"}, cancellable = true)
+        @Inject(at = {@At(value = "INVOKE", target = "Ljava/util/Optional;isEmpty()Z", ordinal = 1)},
+                method = {"tick"}, cancellable = true, remap = false)
         private static void eclipticseasons$isColdTime(Level level, BlockPos pos, BlockState state, RandomSource random, CallbackInfo ci) {
             if (SE.Config.enable.get() && SE.Hook.maySnow(level, pos)) {
                 ci.cancel();
