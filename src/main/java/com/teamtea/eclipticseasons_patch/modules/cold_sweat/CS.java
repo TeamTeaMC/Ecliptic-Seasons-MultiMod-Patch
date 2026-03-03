@@ -30,7 +30,7 @@ public class CS implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Cold Sweat").push("cold_sweat");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             cold_sweat_springs = builder.comment("Spring Temperatures, divided into six periods according to the solar term table.")
                     .defineListAllowEmpty("SpringTemps",
                             () -> List.of(-0.25d, -0.15d, -0.1d, 0d, 0d, 0.05d),

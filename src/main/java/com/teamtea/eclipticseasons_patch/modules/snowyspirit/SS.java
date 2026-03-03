@@ -24,7 +24,7 @@ public class SS implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Snowy Spirit").push("snowyspirit");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             specialTime = builder.comment("Enable special time with SnowySpirit.")
                     .define("SpecialTime", true);
             snowyspirit_winters = builder.comment("Solar Terms in which Snowy Spirit villager AI behaviors will be active.")

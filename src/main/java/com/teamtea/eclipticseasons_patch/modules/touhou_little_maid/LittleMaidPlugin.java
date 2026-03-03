@@ -5,6 +5,7 @@ import com.github.tartaricacid.touhoulittlemaid.api.LittleMaidExtension;
 import com.github.tartaricacid.touhoulittlemaid.api.entity.ai.IExtraMaidBrain;
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.ExtraMaidBrainManager;
 import com.github.tartaricacid.touhoulittlemaid.entity.task.TaskManager;
+import com.teamtea.eclipticseasons_patch.api.PreloadedConfig;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class LittleMaidPlugin implements ILittleMaid {
     @Override
     public void addMaidTask(TaskManager manager) {
         ILittleMaid.super.addMaidTask(manager);
-        if (TLM.Config.enable.get())
+        if (PreloadedConfig.shouldApply(TLM.MOD_ID))
             manager.add(new CleanSnowTask());
     }
 

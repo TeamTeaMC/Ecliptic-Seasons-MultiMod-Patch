@@ -6,6 +6,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 @ESPatch(mods = "touhou_little_maid", esVersion = "0.12.0-pre13")
 public class TLM implements IESModPatch {
+    public static final String MOD_ID = "touhou_little_maid";
 
     @Override
     public void common(ModConfigSpec.Builder consumer) {
@@ -19,7 +20,7 @@ public class TLM implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("touhou_little_maid").push("touhou_little_maid");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             builder.pop();
         }
     }

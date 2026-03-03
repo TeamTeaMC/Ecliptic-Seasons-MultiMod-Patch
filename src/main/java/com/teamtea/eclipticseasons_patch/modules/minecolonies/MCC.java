@@ -24,7 +24,7 @@ public class MCC implements IESModPatch {
             builder.comment("MineColonies")
                     .push("minecolonies");
             enable = builder
-                    .define("Enable", true);
+                    .gameRestart().define("Enable", true);
             averageNightTime = builder
                     .defineInRange("AverageNightTime", 12000, 1, 23999);
             checkSleepOffset = builder

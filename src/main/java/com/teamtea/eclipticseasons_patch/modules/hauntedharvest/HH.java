@@ -24,7 +24,7 @@ public class HH implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Haunted Harvest").push("hauntedharvest");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             hauntedharvest_halloween_time = builder.comment("Solar Terms in which Haunted Harvest villager AI behaviors will be active.")
                     .defineListAllowEmpty("Halloween Time",
                             () -> List.of(

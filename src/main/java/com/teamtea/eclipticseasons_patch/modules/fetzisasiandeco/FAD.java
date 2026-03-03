@@ -29,7 +29,7 @@ public class FAD implements IESModPatch {
             builder.comment("Fetzi's Asian Decoration").push("fetzisasiandeco");
             enable = builder
                     .comment("Here, automatic snow-covered model compatibility has been added for certain blocks from Fetzi's Asian Decoration. At the moment, this is only a compromise solution.")
-                    .define("Enable", true);
+                    .gameRestart().define("Enable", true);
             // fence = builder.define("fence", true);
             // wall = builder.define("wall", true);
             // windows = builder.define("windows", true);

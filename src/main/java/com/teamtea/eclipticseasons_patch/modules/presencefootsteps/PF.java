@@ -4,7 +4,7 @@ import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-@ESPatch(mods = "presencefootsteps")
+@ESPatch(mods = "presencefootsteps",clientOnly = true)
 public class PF implements IESModPatch {
 
     @Override
@@ -19,7 +19,7 @@ public class PF implements IESModPatch {
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Presence Footsteps").push("presencefootsteps");
             enable = builder
-                    .define("Enable", true);
+                    .gameRestart().define("Enable", true);
             builder.pop();
         }
     }

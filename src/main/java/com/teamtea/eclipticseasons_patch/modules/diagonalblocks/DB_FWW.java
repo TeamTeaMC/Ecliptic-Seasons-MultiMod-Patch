@@ -27,7 +27,7 @@ public class DB_FWW implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Diagonal Blocks").push("diagonalblocks");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             fence = builder.define("fence", true);
             wall = builder.define("wall", true);
             // windows = builder.define("windows", true);

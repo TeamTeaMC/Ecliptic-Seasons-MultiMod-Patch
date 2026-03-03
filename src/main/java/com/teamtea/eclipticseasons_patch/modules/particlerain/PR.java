@@ -14,7 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.Tags;
 
-@ESPatch(mods = PR.MOD_ID,minVersions = "0.12.0-pre11-1")
+@ESPatch(mods = PR.MOD_ID,minVersions = "0.12.0-pre11-1",clientOnly = true)
 public class PR implements IESModPatch {
     public static final String MOD_ID = "particlerain";
 
@@ -31,7 +31,7 @@ public class PR implements IESModPatch {
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment(LangUtil.getModName(MOD_ID)).push(MOD_ID);
             enable = builder
-                    .define("Enable", true);
+                    .gameRestart().define("Enable", true);
             fixSand = builder
                     .comment("When it rains in desert biomes, replace it with a sandstorm.")
                     .define("FixSand", true);

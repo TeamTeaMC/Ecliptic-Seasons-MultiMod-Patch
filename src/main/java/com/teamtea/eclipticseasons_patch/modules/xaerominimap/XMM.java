@@ -21,7 +21,7 @@ public class XMM implements IESModPatch {
        public static void load(ModConfigSpec.Builder builder) {
            builder.comment(LangUtil.getModName(MOD_ID)).push(MOD_ID);
            enable = builder
-                   .define("Enable", true);
+                   .gameRestart().define("Enable", true);
            builder.pop();
        }
    }

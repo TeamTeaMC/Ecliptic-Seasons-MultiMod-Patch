@@ -18,7 +18,7 @@ public class IC implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("InControl").push("incontrol");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             builder.pop();
         }
     }

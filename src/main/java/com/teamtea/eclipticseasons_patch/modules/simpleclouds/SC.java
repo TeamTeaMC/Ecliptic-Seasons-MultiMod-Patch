@@ -35,7 +35,7 @@ public class SC implements IESModPatch {
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Simple Clouds", "This is just a simple processing routine and is not fully compatible.").push("simpleclouds");
-            enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("Enable", true);
             builder.pop();
         }
     }

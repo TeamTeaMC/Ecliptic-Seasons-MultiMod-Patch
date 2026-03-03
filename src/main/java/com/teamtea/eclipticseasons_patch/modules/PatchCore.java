@@ -6,6 +6,7 @@ import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
 import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import com.teamtea.eclipticseasons_patch.api.LangUtil;
+import com.teamtea.eclipticseasons_patch.api.PreloadedConfig;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.ModLoadingException;
@@ -22,6 +23,9 @@ import java.util.stream.Collectors;
 public class PatchCore {
     public static final List<IESModPatch> MOD_PLUGINS = new ArrayList<>();
     public static final List<ModLoadingIssue> MOD_LOADING_EXCEPTIONS = new ArrayList<>();
+
+    public static final List<String> MOD_DISABLED = new ArrayList<>();
+    public static final List<String> CLIENT_MOD_DISABLED = new ArrayList<>();
 
     public static void run() {
         LangUtil.tryLoadLang();
@@ -44,6 +48,12 @@ public class PatchCore {
                 List<String> required = (List<String>) $.annotationData().getOrDefault("mods", new ArrayList<>());
                 List<String> minVersions = (List<String>) $.annotationData().getOrDefault("minVersions", new ArrayList<>());
                 boolean shouldTryLoad = modIdSet.containsAll(required);
+                boolean disabledPlugin = !required.isEmpty() && !PreloadedConfig.shouldApply(required.get(0));
+                shouldTryLoad &= !disabledPlugin;
+                if (disabledPlugin) {
+                    boolean clientOnly = (Boolean) $.annotationData().getOrDefault("clientOnly", false);
+                    (clientOnly ? CLIENT_MOD_DISABLED : MOD_DISABLED).add(required.get(0));
+                }
                 if (shouldTryLoad && !minVersions.isEmpty()
                         && required.size() == minVersions.size()) {
                     for (int i = 0; i < required.size(); i++) {
@@ -65,7 +75,7 @@ public class PatchCore {
                         ));
                     }
                 }
-                if(shouldTryLoad){
+                if (shouldTryLoad) {
                     String minCoreVersion = (String) $.annotationData().getOrDefault("esVersion", "");
                     if (!minCoreVersion.isEmpty()) {
                         if (invalidVersion(minCoreVersion, coreModVersion)) {
