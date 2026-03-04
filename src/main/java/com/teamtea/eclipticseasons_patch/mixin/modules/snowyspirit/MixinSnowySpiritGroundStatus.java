@@ -4,7 +4,6 @@ package com.teamtea.eclipticseasons_patch.mixin.modules.snowyspirit;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.teamtea.eclipticseasons.api.EclipticSeasonsApi;
-import com.teamtea.eclipticseasons_patch.modules.snowyspirit.SS;
 import net.mehvahdjukaar.snowyspirit.common.entity.GroundStatus;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.Blocks;
@@ -20,7 +19,7 @@ public abstract class MixinSnowySpiritGroundStatus {
             remap = false)
     private static BlockState eclipticseasons$computeFriction(BlockState original,
                                                               @Local(argsOnly = true) Entity sled) {
-        if (SS.Config.enable.get() && EclipticSeasonsApi.getInstance().isSnowyBlock(sled.level(), original, sled.getOnPos()))
+        if (EclipticSeasonsApi.getInstance().isSnowyBlock(sled.level(), original, sled.getOnPos()))
             original = Blocks.SNOW.defaultBlockState();
         return original;
     }

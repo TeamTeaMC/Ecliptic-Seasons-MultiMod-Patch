@@ -176,7 +176,7 @@ dependencies {
     compileOnly("curse.maven:snowy-spirit-566142:5983882")
     onlyMainRuntimeOnly ("curse.maven:snowy-spirit-566142:5983882")
     onlyMainRuntimeOnly ("curse.maven:selene-499980:6224057")
-    compileOnly "curse.maven:haunted-harvest-541753:6759795"
+//    compileOnly "curse.maven:haunted-harvest-541753:6759795"
 //    onlyMainRuntimeOnly "curse.maven:haunted-harvest-541753:6759795"
 
     compileOnly "curse.maven:touhou-little-maid-355044:6175338"
@@ -192,8 +192,8 @@ dependencies {
 
     compileOnly "curse.maven:minecolonies-245506:6844367"
 
-    compileOnly "curse.maven:dynamictrees-252818:7513464"
-    onlyMainRuntimeOnly "curse.maven:dynamictrees-252818:6611182"
+//    compileOnly "curse.maven:dynamictrees-252818:7513464"
+//    onlyMainRuntimeOnly "curse.maven:dynamictrees-252818:6611182"
 
 //    onlyMainRuntimeOnly "curse.maven:diagonal-fences-458048:5918197"
 //    onlyMainRuntimeOnly "curse.maven:puzzles-lib-495476:6874068"
@@ -207,9 +207,9 @@ dependencies {
     onlyMainRuntimeOnly "curse.maven:macaws-roofs-352039:6494399"
     onlyMainRuntimeOnly "curse.maven:macaws-bridges-351725:6543002"
 
-    compileOnly "curse.maven:ambientsounds-254284:6978999"
-    onlyMainRuntimeOnly "curse.maven:ambientsounds-254284:6978999"
-    onlyMainRuntimeOnly "curse.maven:creativecore-257814:6989504"
+//    compileOnly "curse.maven:ambientsounds-254284:6978999"
+//    onlyMainRuntimeOnly "curse.maven:ambientsounds-254284:6978999"
+//    onlyMainRuntimeOnly "curse.maven:creativecore-257814:6989504"
 
     onlyMainRuntimeOnly "curse.maven:domum-ornamentum-527361:6870762"
 
@@ -229,7 +229,7 @@ dependencies {
 
     compileOnly "curse.maven:snow-real-magic-308663:7472610"
 
-    compileOnly ("maven.modrinth:subtle-effects:conRdzcK")
+//    compileOnly ("maven.modrinth:subtle-effects:conRdzcK")
 
     println("----Scan onlyMainRuntimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
