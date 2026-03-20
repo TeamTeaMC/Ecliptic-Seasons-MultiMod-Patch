@@ -5,15 +5,21 @@
   "refmap": "eclipticseasons_multimodpatch.refmap.json",
   "mixins": [
     "modules.cold_sweat.MixinWorldHelper",
+    "modules.hauntedharvest.MixinHauntedHarvest",
     "modules.incontrol.MixinGenericAttributeMapFactory",
     "modules.incontrol.MixinGenericRuleEvaluator",
     "modules.minecolonies.MixinCitizenAI",
     "modules.minecolonies.MixinCitizenSleepHandler",
     "modules.simpleclouds.MixinSimpleCloudTickChunks",
     "modules.snowrealmagic.MixinWorldTickHandler",
-    "modules.snowyspirit.MixinSnowySpiritGroundStatus"
+    "modules.snowyspirit.MixinSnowySpirit",
+    "modules.snowyspirit.MixinSnowySpiritGroundStatus",
+    "modules.subtle_effects.MixinBundles$ExtraFireflyManager",
+    "modules.subtle_effects.MixinBundles$ExtraFrostyBreathTicker"
   ],
   "client": [
+    "modules.ambientsounds.MixinAmbientEnvironment",
+    "modules.ambientsounds.MixinBiomeEnvironment",
     "modules.journeymap.MixinBlockMD",
     "modules.particlerain.MixinWeatherParticleSpawner",
     "modules.presencefootsteps.MixinPFSolver",

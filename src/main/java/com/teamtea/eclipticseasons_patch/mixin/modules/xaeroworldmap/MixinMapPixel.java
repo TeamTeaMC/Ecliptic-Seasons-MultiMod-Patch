@@ -20,6 +20,18 @@ public abstract class MixinMapPixel {
     @Shadow(remap = false)
     protected BlockState state;
 
+    //@Definition(id = "colours", field = "Lxaero/map/settings/ModSettings;colours:I")
+    //@Expression("? == 0")
+    //@ModifyExpressionValue(at = {@At(value = "MIXINEXTRAS:EXPRESSION")},
+    //        method = {"getPixelColours"},
+    //        remap = false)
+    //private boolean eclipticseasons$getPixelColours(boolean original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    //    if (XWM.Config.enable.get()
+    //            && EclipticSeasonsApi.getInstance().isSnowyBlock(world, state, mutableGlobalPos)) {
+    //        return false;
+    //    }
+    //    return original;
+    //}
 
     @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/map/MapWriter;loadBlockColourFromTexture(Lnet/minecraft/world/level/block/state/BlockState;ZLnet/minecraft/world/level/Level;Lnet/minecraft/core/Registry;Lnet/minecraft/core/BlockPos;)I")},
             method = {"getPixelColours"},
