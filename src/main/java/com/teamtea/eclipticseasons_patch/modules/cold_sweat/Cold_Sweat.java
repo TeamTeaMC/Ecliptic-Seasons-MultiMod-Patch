@@ -16,18 +16,18 @@ public class Cold_Sweat {
 
     @SubscribeEvent
     public void registerTempModifiers(TempModifierRegisterEvent event) {
-        if (CS.Config.enable.get()) {
+        if (CS.Config.enable.get() && CS.Config.tempModifier.get()) {
             event.register(EclipticSeasons.rl("season"), ESTempModifier::new);
         }
     }
 
     @SubscribeEvent
     public void defineDefaultModifiers(DefaultTempModifiersEvent event) {
-        if (CS.Config.enable.get()) {
+        if (CS.Config.enable.get() && CS.Config.tempModifier.get()) {
             event.addModifierById(Temperature.Trait.WORLD,
-                                  EclipticSeasons.rl("season"),
-                                  mod -> mod.tickRate(60),
-                                  Placement.of(Mode.ADD_BEFORE, Order.FIRST, mod2 -> mod2 instanceof ElevationTempModifier).noDuplicates(Matcher.SAME_CLASS));
+                    EclipticSeasons.rl("season"),
+                    mod -> mod.tickRate(60),
+                    Placement.of(Mode.ADD_BEFORE, Order.FIRST, mod2 -> mod2 instanceof ElevationTempModifier).noDuplicates(Matcher.SAME_CLASS));
         }
     }
 }

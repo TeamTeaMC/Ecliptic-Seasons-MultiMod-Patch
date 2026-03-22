@@ -2,6 +2,7 @@ package com.teamtea.eclipticseasons_patch.modules.cold_sweat;
 
 import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
+import com.teamtea.eclipticseasons_patch.api.PatchUtil;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.IEventBus;
 
@@ -23,6 +24,7 @@ public class CS implements IESModPatch {
     public static class Config {
 
         public static ForgeConfigSpec.BooleanValue enable;
+        public static ForgeConfigSpec.BooleanValue tempModifier;
         public static ForgeConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_springs;
         public static ForgeConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_summers;
         public static ForgeConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_autumns;
@@ -31,6 +33,7 @@ public class CS implements IESModPatch {
         public static void load(ForgeConfigSpec.Builder builder) {
             builder.comment("Cold Sweat").push("cold_sweat");
             enable = builder.define("Enable", true);
+            enable = builder.gameRestart().define("TempModifier", PatchUtil.isBridgeModLoaded());
             cold_sweat_springs = builder.comment("Spring Temperatures, divided into six periods according to the solar term table.")
                     .defineListAllowEmpty("SpringTemps",
                             () -> List.of(-0.25d, -0.15d, -0.1d, 0d, 0d, 0.05d),

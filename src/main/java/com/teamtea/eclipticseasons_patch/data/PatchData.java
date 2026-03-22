@@ -2,7 +2,6 @@ package com.teamtea.eclipticseasons_patch.data;
 
 import com.teamtea.eclipticseasons.data.api.MutablePackOutput;
 import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
-import com.teamtea.eclipticseasons_patch.api.PackageUtil;
 import com.teamtea.eclipticseasons_patch.data.lang.Lang_EN;
 import com.teamtea.eclipticseasons_patch.data.lang.Lang_ZH;
 import net.minecraft.data.DataGenerator;
