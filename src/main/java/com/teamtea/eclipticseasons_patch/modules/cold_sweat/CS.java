@@ -1,7 +1,10 @@
 package com.teamtea.eclipticseasons_patch.modules.cold_sweat;
 
+import com.teamtea.eclipticseasons.compat.Platform;
 import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
+import com.teamtea.eclipticseasons_patch.api.LangUtil;
+import com.teamtea.eclipticseasons_patch.api.PatchUtil;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -23,6 +26,7 @@ public class CS implements IESModPatch {
     public static class Config {
 
         public static ModConfigSpec.BooleanValue enable;
+        public static ModConfigSpec.BooleanValue tempModifier;
         public static ModConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_springs;
         public static ModConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_summers;
         public static ModConfigSpec.ConfigValue<List<? extends Double>> cold_sweat_autumns;
@@ -31,6 +35,7 @@ public class CS implements IESModPatch {
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment("Cold Sweat").push("cold_sweat");
             enable = builder.gameRestart().define("Enable", true);
+            enable = builder.gameRestart().define("TempModifier", PatchUtil.isBridgeModLoaded());
             cold_sweat_springs = builder.comment("Spring Temperatures, divided into six periods according to the solar term table.")
                     .defineListAllowEmpty("SpringTemps",
                             () -> List.of(-0.25d, -0.15d, -0.1d, 0d, 0d, 0.05d),
@@ -51,4 +56,5 @@ public class CS implements IESModPatch {
             builder.pop();
         }
     }
+
 }
