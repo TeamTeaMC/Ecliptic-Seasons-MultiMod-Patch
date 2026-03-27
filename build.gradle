@@ -186,6 +186,7 @@ dependencies {
     compileOnly("nonamecrackers2:simplecloudsapi-neoforge:1.4-1.21.1")
 //    onlyMainRuntimeOnly "curse.maven:simple-clouds-1121215:6928979"
     compileOnly("curse.maven:cold-sweat-506194:7370181")
+    onlyMainRuntimeOnly("curse.maven:cold-sweat-506194:7370181")
 
     compileOnly "curse.maven:in-control-257356:6677543"
     onlyMainRuntimeOnly "curse.maven:in-control-257356:6677543"
