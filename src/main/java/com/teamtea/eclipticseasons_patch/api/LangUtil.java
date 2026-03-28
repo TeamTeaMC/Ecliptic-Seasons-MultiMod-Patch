@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import com.teamtea.eclipticseasons.compat.Platform;
 import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
 import net.minecraft.util.GsonHelper;
-import net.neoforged.neoforgespi.language.IModInfo;
+import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
