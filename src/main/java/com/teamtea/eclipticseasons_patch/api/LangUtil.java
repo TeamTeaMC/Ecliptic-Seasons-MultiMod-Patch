@@ -7,6 +7,7 @@ import com.teamtea.eclipticseasons.compat.Platform;
 import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
 import net.minecraft.util.GsonHelper;
 import net.minecraftforge.forgespi.language.IModInfo;
+import net.minecraftforge.forgespi.locating.IModFile;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
@@ -77,7 +78,9 @@ public class LangUtil {
     }
 
     public static String getModName(String modId) {
-        List<IModInfo> mods = Platform.getModFile(modId).getModFileInfo().getMods();
+        IModFile modFile = Platform.getModFile(modId);
+        if (modFile == null) return "";
+        List<IModInfo> mods = modFile.getModFileInfo().getMods();
         if (mods == null || mods.isEmpty()) return "";
         return mods.get(0).getDisplayName();
     }

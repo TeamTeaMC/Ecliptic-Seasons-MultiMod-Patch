@@ -1,3 +1,3 @@
 ## 0.27.2
 
-Fixed #25.
+Fixed a startup issue.
