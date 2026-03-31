@@ -77,7 +77,9 @@ public class LangUtil {
     }
 
     public static String getModName(String modId) {
-        List<IModInfo> mods = Platform.getModFile(modId).getModFileInfo().getMods();
+        var modFile = Platform.getModFile(modId);
+        if (modFile == null) return "";
+        List<IModInfo> mods = modFile.getModFileInfo().getMods();
         if (mods == null || mods.isEmpty()) return "";
         return mods.getFirst().getDisplayName();
     }
