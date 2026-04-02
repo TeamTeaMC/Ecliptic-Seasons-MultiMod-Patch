@@ -1,10 +1,12 @@
 package com.teamtea.eclipticseasons_patch.modules.incontrol;
 
+import com.teamtea.eclipticseasons.EclipticSeasons;
 import com.teamtea.eclipticseasons.api.EclipticSeasonsApi;
 import com.teamtea.eclipticseasons.api.constant.solar.Season;
 import com.teamtea.eclipticseasons.api.constant.solar.SolarTerm;
 import com.teamtea.eclipticseasons.common.core.biome.WeatherManager;
 import com.teamtea.eclipticseasons.common.core.map.MapChecker;
+import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
 import mcjty.incontrol.tools.rules.IEventQuery;
 import mcjty.incontrol.tools.typed.Key;
 import mcjty.incontrol.tools.typed.Type;
@@ -61,13 +63,23 @@ public class ICHook {
                         } else {
                             throw new IllegalArgumentException(string);
                         }
-                        while (start != end) {
+                        if (start == end) {
+                            solarTermSet.add(start);
+                        } else while (start != end) {
                             solarTermSet.add(start);
                             start = start.getNextSolarTerm();
                         }
-                    } catch (IllegalArgumentException ignore) {
+                    } catch (IllegalArgumentException exception) {
+                        EclipticSeasonsPatch.logger(exception);
                     }
                 }
+            }
+            if (solarTermSet.isEmpty()) {
+                String st = String.join(", ", Arrays.stream(SolarTerm.collectValidValues()).map(SolarTerm::getName).toList());
+                String ss = String.join(", ", Arrays.stream(Season.collectValidValues()).map(Season::getName).toList());
+                EclipticSeasons.logger("Valid");
+                throw new IllegalArgumentException("Valid solar terms: %s;\nValid seasons:%s"
+                        .formatted(st, ss));
             }
             return new ValidTerms(EnumSet.copyOf(solarTermSet));
         }

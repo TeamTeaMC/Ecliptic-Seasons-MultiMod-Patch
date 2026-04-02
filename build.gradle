@@ -80,7 +80,7 @@ minecraft {
             // use for logger control
             property 'forgegradle.runs.dev', 'true'
 
-            jvmArgs "-Xmx3000M"
+            jvmArgs "-Xmx2000M"
 
             jvmArg "-XX:+AllowEnhancedClassRedefinition"
 
@@ -259,8 +259,8 @@ dependencies {
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:touhou-little-maid-355044:6120178")
 
     compileOnly fg.deobf("curse.maven:ambientsounds-254284:6570130")
-    onlyMainRuntimeOnly fg.deobf("curse.maven:ambientsounds-254284:6570130")
-    onlyMainRuntimeOnly fg.deobf("curse.maven:creativecore-257814:6383884")
+    compileOnly fg.deobf("curse.maven:ambientsounds-254284:6570130")
+    compileOnly fg.deobf("curse.maven:creativecore-257814:6383884")
 
     compileOnly fg.deobf("nonamecrackers2:simplecloudsapi-forge:1.4-1.20.1")
     compileOnly fg.deobf("curse.maven:simple-clouds-1121215:6928978")
@@ -277,7 +277,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:cold-sweat-506194:7370183")
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:cold-sweat-506194:7370183")
     compileOnly fg.deobf("curse.maven:dynamictrees-252818:7502488")
-    compileOnly fg.deobf("curse.maven:in-control-257356:6932951")
+    implementation fg.deobf("curse.maven:in-control-257356:6932951")
     onlyMainRuntimeOnly fg.deobf("curse.maven:in-control-257356:6932951")
 
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:diagonal-walls-969422:5918171")
@@ -291,21 +291,21 @@ dependencies {
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:goety-586095:7136471")
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:curios-309927:6418456")
 
-    onlyMainRuntimeOnly fg.deobf("curse.maven:domum-ornamentum-527361:6870756")
+    compileOnly fg.deobf("curse.maven:domum-ornamentum-527361:6870756")
 
 //    onlyMainRuntimeOnly fg.deobf("curse.maven:yuushya-townscape-533104:6393938")
 
-    onlyMainRuntimeOnly fg.deobf("curse.maven:macaws-roofs-352039:6494466")
-    onlyMainRuntimeOnly fg.deobf("curse.maven:macaws-bridges-351725:6528751")
+    compileOnly fg.deobf("curse.maven:macaws-roofs-352039:6494466")
+    compileOnly fg.deobf("curse.maven:macaws-bridges-351725:6528751")
 
     compileOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
-    onlyMainRuntimeOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
+    compileOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
 
     compileOnly fg.deobf("curse.maven:xaeros-minimap-263420:6778028")
     compileOnly fg.deobf("curse.maven:xaeros-world-map-317780:6778091")
 
-    implementation fg.deobf("curse.maven:snow-real-magic-308663:7472648")
-    implementation fg.deobf("curse.maven:kiwi-303657:7514218")
+    compileOnly fg.deobf("curse.maven:snow-real-magic-308663:7472648")
+    compileOnly fg.deobf("curse.maven:kiwi-303657:7514218")
 
     compileOnly fg.deobf("maven.modrinth:subtle-effects:Ci8SWnwn")
 
@@ -313,7 +313,7 @@ dependencies {
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
         def fileName = file.name
         println(fileName.substring(0, fileName.indexOf("-")) + "," + fileName.substring(fileName.indexOf("-") + 1, fileName.indexOf(".jar")))
-        runtimeOnly fg.deobf(name: fileName.substring(0, fileName.indexOf(".jar")),
+        onlyMainRuntimeOnly fg.deobf(name: fileName.substring(0, fileName.indexOf(".jar")),
                 group: 'libs',
                 version: fileName.substring(0, fileName.indexOf(".jar")))
     }
