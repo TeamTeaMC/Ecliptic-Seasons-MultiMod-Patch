@@ -64,7 +64,9 @@ public class ICHook {
                         } else {
                             throw new IllegalArgumentException(string);
                         }
-                        while (start != end) {
+                        if (start == end) {
+                            solarTermSet.add(start);
+                        } else while (start != end) {
                             solarTermSet.add(start);
                             start = start.getNextSolarTerm();
                         }
@@ -72,6 +74,13 @@ public class ICHook {
                         EclipticSeasonsPatch.logger(exception);
                     }
                 }
+            }
+            if (solarTermSet.isEmpty()) {
+                String st = String.join(", ", Arrays.stream(SolarTerm.collectValidValues()).map(SolarTerm::getName).toList());
+                String ss = String.join(", ", Arrays.stream(Season.collectValidValues()).map(Season::getName).toList());
+                EclipticSeasons.logger("Valid");
+                throw new IllegalArgumentException("Valid solar terms: %s;\nValid seasons:%s"
+                        .formatted(st, ss));
             }
             return new ValidTerms(EnumSet.copyOf(solarTermSet));
         }
@@ -82,7 +91,7 @@ public class ICHook {
         public boolean matches(Level level, @Nullable BlockPos pos) {
             if (pos == null) return false;
             if (!MapChecker.isLoadNearByOnlyServer(level, pos))
-                return biomes.contains(CropGrowthHandler.getCropBiome(level,pos));
+                return biomes.contains(CropGrowthHandler.getCropBiome(level, pos));
             return biomes.contains(MapChecker.getSurfaceBiome(level, pos));
         }
 
