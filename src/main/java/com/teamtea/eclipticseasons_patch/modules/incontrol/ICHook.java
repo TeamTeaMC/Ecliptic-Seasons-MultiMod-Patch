@@ -1,11 +1,13 @@
 package com.teamtea.eclipticseasons_patch.modules.incontrol;
 
+import com.teamtea.eclipticseasons.EclipticSeasons;
 import com.teamtea.eclipticseasons.api.EclipticSeasonsApi;
 import com.teamtea.eclipticseasons.api.constant.solar.Season;
 import com.teamtea.eclipticseasons.api.constant.solar.SolarTerm;
 import com.teamtea.eclipticseasons.common.core.biome.WeatherManager;
 import com.teamtea.eclipticseasons.common.core.crop.CropGrowthHandler;
 import com.teamtea.eclipticseasons.common.core.map.MapChecker;
+import com.teamtea.eclipticseasons_patch.EclipticSeasonsPatch;
 import mcjty.incontrol.tools.rules.IEventQuery;
 import mcjty.incontrol.tools.typed.Key;
 import mcjty.incontrol.tools.typed.Type;
@@ -66,7 +68,8 @@ public class ICHook {
                             solarTermSet.add(start);
                             start = start.getNextSolarTerm();
                         }
-                    } catch (IllegalArgumentException ignore) {
+                    } catch (IllegalArgumentException exception) {
+                        EclipticSeasonsPatch.logger(exception);
                     }
                 }
             }
