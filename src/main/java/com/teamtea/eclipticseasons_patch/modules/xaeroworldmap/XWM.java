@@ -17,11 +17,13 @@ public class XWM implements IESModPatch {
     public static class Config {
 
         public static ModConfigSpec.BooleanValue enable;
-
+        public static ModConfigSpec.BooleanValue skipVanillaColorCheck;
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment(LangUtil.getModName(MOD_ID)).push(MOD_ID);
             enable = builder
-                    .gameRestart().define("Enable", true);
+                    .define("Enable", true);
+            skipVanillaColorCheck = builder
+                    .define("SkipVanillaColorCheck", true);
             builder.pop();
         }
     }

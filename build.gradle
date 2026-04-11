@@ -225,7 +225,7 @@ dependencies {
 
     onlyMainRuntimeOnly "curse.maven:ultramarine-1187491:6930907"
 
-    compileOnly "curse.maven:xaeros-world-map-317780:6778114"
+    implementation "curse.maven:xaeros-world-map-317780:6778114"
     implementation "curse.maven:xaeros-minimap-263420:6778051"
 
     compileOnly "curse.maven:snow-real-magic-308663:7472610"
