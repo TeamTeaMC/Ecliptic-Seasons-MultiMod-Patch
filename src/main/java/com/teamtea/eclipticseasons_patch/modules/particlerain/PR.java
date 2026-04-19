@@ -1,5 +1,6 @@
 package com.teamtea.eclipticseasons_patch.modules.particlerain;
 
+import com.teamtea.eclipticseasons.api.util.EclipticUtil;
 import com.teamtea.eclipticseasons.common.core.biome.WeatherManager;
 import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
@@ -34,7 +35,7 @@ public class PR implements IESModPatch {
     public static class Hook {
 
         public static Biome.Precipitation getPrecipitation(Biome instance, BlockPos pos, ClientLevel level, Holder<Biome> biomeHolder) {
-            return WeatherManager.getPrecipitationAt(level, biomeHolder.value(), pos);
+            return EclipticUtil.getRainOrSnow(level, biomeHolder.value(), pos);
         }
     }
 
