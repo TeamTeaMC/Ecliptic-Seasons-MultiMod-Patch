@@ -157,7 +157,7 @@ dependencies {
     runtimeOnly("curse.maven:jei-238222:5846880")
     runtimeOnly("curse.maven:jade-324717:5591256")
 
-    implementation("curse.maven:ecliptic-seasons-1118306:7595115")
+    implementation("curse.maven:ecliptic-seasons-1118306:7950044")
 
     onlyMainRuntimeOnly("curse.maven:irisshaders-455508:6213632")
     onlyMainRuntimeOnly "maven.modrinth:sodium:mc1.21.1-0.6.9-neoforge"

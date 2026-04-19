@@ -29,7 +29,7 @@ public abstract class MixinWeatherParticleSpawner {
             remap = false,
             method = "update")
     private static Holder<Biome> eclipticseasons$update_surfaceBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
-        if (PR.Config.enable.get() && EclipticSeasonsApi.getInstance().hasLocalWeather(instance))
+        if (PR.Config.enable.get())
             return MapChecker.getSurfaceBiome(instance, pos);
         return original.call(instance, pos);
     }
@@ -52,7 +52,7 @@ public abstract class MixinWeatherParticleSpawner {
             remap = false,
             method = "getBiomeSound")
     private static Holder<Biome> eclipticseasons$getBiomeSound_surfaceBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
-        if (PR.Config.enable.get() && EclipticSeasonsApi.getInstance().hasLocalWeather(instance))
+        if (PR.Config.enable.get())
             return MapChecker.getSurfaceBiome(instance, pos);
         return original.call(instance, pos);
     }

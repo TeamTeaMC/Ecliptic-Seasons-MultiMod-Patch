@@ -15,8 +15,7 @@ import team.creative.ambientsounds.environment.AmbientEnvironment;
 public class AS6_Hook {
     public static float getTempAndFixFlag(AmbientEnvironment ae, Player player, Level level) {
         BlockPos pos = player.blockPosition();
-        Holder<Biome> biomeHolder = EclipticSeasonsApi.getInstance().hasLocalWeather(level) ?
-                MapChecker.getSurfaceBiome(level, pos) : level.getBiome(pos);
+        Holder<Biome> biomeHolder = MapChecker.getSurfaceBiome(level, pos);
         Biome.Precipitation currentPrecipitationAt = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(level, pos);
         float baseTemperature = EclipticUtil.getTemperatureFloat(level, biomeHolder.value(), pos);
         SolarTerm solarTerm = EclipticSeasonsApi.getInstance().getSolarTerm(level);

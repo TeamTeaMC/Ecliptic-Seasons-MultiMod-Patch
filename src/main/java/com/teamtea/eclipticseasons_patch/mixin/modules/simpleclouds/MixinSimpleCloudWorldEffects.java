@@ -24,7 +24,7 @@ public class MixinSimpleCloudWorldEffects {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")
     )
     private Holder<Biome> eclipticseasons$tick_getBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
-        return SC.Config.enable.get() && EclipticUtil.hasLocalWeather(instance) ?
+        return SC.Config.enable.get() ?
                 MapChecker.getSurfaceBiome(instance, pos) :
                 original.call(instance, pos);
     }

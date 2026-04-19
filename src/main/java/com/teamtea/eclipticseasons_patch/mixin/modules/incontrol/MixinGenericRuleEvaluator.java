@@ -74,29 +74,29 @@ public abstract class MixinGenericRuleEvaluator {
         }
     }
 
-    @Inject(at = {@At(value = "INVOKE", remap = true, target = "Lnet/minecraft/world/level/Level;isRaining()Z")},
-            method = {"lambda$addWeatherCheck$45"},
-            remap = false, cancellable = true, require = 0)
-    private static void eclipticseasons$lambda$addWeatherCheck$44(Object event, IEventQuery query, CallbackInfoReturnable<Boolean> cir, @Local Level level) {
-        if (IC.Config.enable.get()) {
-            BlockPos pos = query.getPos(event);
-            if (pos != null) {
-                cir.setReturnValue(EclipticSeasonsApi.getInstance().isRainingOrSnowing(level, pos));
-            }
-        }
-    }
+    // @Inject(at = {@At(value = "INVOKE", remap = true, target = "Lnet/minecraft/world/level/Level;isRaining()Z")},
+    //         method = {"lambda$addWeatherCheck$45"},
+    //         remap = false, cancellable = true, require = 0)
+    // private static void eclipticseasons$lambda$addWeatherCheck$44(Object event, IEventQuery query, CallbackInfoReturnable<Boolean> cir, @Local Level level) {
+    //     if (IC.Config.enable.get()) {
+    //         BlockPos pos = query.getPos(event);
+    //         if (pos != null) {
+    //             cir.setReturnValue(EclipticSeasonsApi.getInstance().isRainingOrSnowing(level, pos));
+    //         }
+    //     }
+    // }
 
-    @Inject(at = {@At(value = "INVOKE", remap = true, target = "Lnet/minecraft/world/level/Level;isThundering()Z")},
-            method = {"lambda$addWeatherCheck$46"},
-            remap = false, cancellable = true, require = 0)
-    private static void eclipticseasons$lambda$addWeatherCheck$45(Object event, IEventQuery query, CallbackInfoReturnable<Boolean> cir, @Local Level level) {
-        if (IC.Config.enable.get()) {
-            BlockPos pos = query.getPos(event);
-            if (pos != null) {
-                cir.setReturnValue(EclipticSeasonsApi.getInstance().isThundering(level, pos));
-            }
-        }
-    }
+    // @Inject(at = {@At(value = "INVOKE", remap = true, target = "Lnet/minecraft/world/level/Level;isThundering()Z")},
+    //         method = {"lambda$addWeatherCheck$46"},
+    //         remap = false, cancellable = true, require = 0)
+    // private static void eclipticseasons$lambda$addWeatherCheck$45(Object event, IEventQuery query, CallbackInfoReturnable<Boolean> cir, @Local Level level) {
+    //     if (IC.Config.enable.get()) {
+    //         BlockPos pos = query.getPos(event);
+    //         if (pos != null) {
+    //             cir.setReturnValue(EclipticSeasonsApi.getInstance().isThundering(level, pos));
+    //         }
+    //     }
+    // }
 
 
     @Inject(at = {@At(value = "HEAD")},
