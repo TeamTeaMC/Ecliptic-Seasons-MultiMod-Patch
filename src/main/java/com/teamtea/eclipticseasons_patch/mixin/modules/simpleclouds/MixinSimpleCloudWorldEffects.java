@@ -24,7 +24,7 @@ public class MixinSimpleCloudWorldEffects {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")
     )
     private Holder<Biome> eclipticseasons$tick_getBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
-        return SC.Config.enable.get() && EclipticUtil.hasLocalWeather(instance) ?
+        return SC.Config.enable.get() ?
                 MapChecker.getSurfaceBiome(instance, pos) :
                 original.call(instance, pos);
     }
@@ -38,15 +38,4 @@ public class MixinSimpleCloudWorldEffects {
                 EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(Minecraft.getInstance().level, pos) :
                 original.call(biome, pos);
     }
-
-    // @ModifyExpressionValue(
-    //         remap = false,
-    //         method = {"tick"},
-    //         at = @At(value = "INVOKE", target = "Ljava/util/Map;containsKey(Ljava/lang/Object;)Z")
-    // )
-    // private boolean eclipticseasons$tick_cancelNone(boolean original, @Local Biome.Precipitation precipitation) {
-    //     if (precipitation == Biome.Precipitation.NONE)
-    //         return true;
-    //     return original;
-    // }
 }
