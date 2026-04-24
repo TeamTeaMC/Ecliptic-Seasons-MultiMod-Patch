@@ -31,7 +31,6 @@ public class AS6_Hook {
         }
         ae.snowing = currentPrecipitationAt == Biome.Precipitation.SNOW;
         ae.thundering = EclipticSeasonsApi.getInstance().isThundering(level, pos);
-        // this.raining = EclipticSeasonsApi.getInstance().isRainingOrSnowing(level, pos);
         return baseTemperature;
     }
 }

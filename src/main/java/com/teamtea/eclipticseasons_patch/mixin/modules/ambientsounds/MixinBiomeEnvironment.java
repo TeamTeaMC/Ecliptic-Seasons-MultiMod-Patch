@@ -16,18 +16,6 @@ import team.creative.ambientsounds.environment.BiomeEnvironment;
 @Mixin({BiomeEnvironment.class})
 public abstract class MixinBiomeEnvironment {
 
-
-    // @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;isRaining()Z")},
-    //         method = {"<init>(Lteam/creative/ambientsounds/engine/AmbientEngine;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lteam/creative/ambientsounds/condition/AmbientVolume;)V"}
-    //         // , remap = false
-    // )
-    // private boolean eclipticseasons$isRaining(Level instance, Operation<Boolean> original, @Local BlockPos.MutableBlockPos mutableBlockPos) {
-    //     if (AS6.Config.enable.get()) {
-    //         return EclipticSeasonsApi.getInstance().isRainingOrSnowing(instance,mutableBlockPos);
-    //     }
-    //     return original.call(instance);
-    // }
-
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;getPrecipitationAt(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/biome/Biome$Precipitation;")},
             method = {"<init>(Lteam/creative/ambientsounds/engine/AmbientEngine;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lteam/creative/ambientsounds/condition/AmbientVolume;)V"}
             // ,remap = false
