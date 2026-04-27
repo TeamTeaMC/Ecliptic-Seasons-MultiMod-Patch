@@ -29,7 +29,7 @@ public abstract class MixinAmbientEnvironment {
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lteam/creative/ambientsounds/mod/SereneSeasonsCompat;getTemperature(Lnet/minecraft/world/entity/player/Player;)F")},
             method = {"analyzeFast"},
             remap = false)
-    private float eclipticseasons$SeasonsCompat(Player player, Operation<Float> original, @Local(argsOnly = true) Level level) {
+    private float eclipticseasons_multimodpatch$SeasonsCompat(Player player, Operation<Float> original, @Local(argsOnly = true) Level level) {
         if (AS6.Config.enable.get()) {
             return AS6_Hook.getTempAndFixFlag((AmbientEnvironment) (Object) this, player, level);
         }

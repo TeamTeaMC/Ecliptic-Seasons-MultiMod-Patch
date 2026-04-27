@@ -25,7 +25,7 @@ public abstract class MixinMapPixel {
     //@ModifyExpressionValue(at = {@At(value = "MIXINEXTRAS:EXPRESSION")},
     //        method = {"getPixelColours"},
     //        remap = false)
-    //private boolean eclipticseasons$getPixelColours(boolean original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    //private boolean eclipticseasons_multimodpatch$getPixelColours(boolean original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
     //    if (XWM.Config.enable.get()
     //            && EclipticSeasonsApi.getInstance().isSnowyBlock(world, state, mutableGlobalPos)) {
     //        return false;
@@ -36,7 +36,7 @@ public abstract class MixinMapPixel {
     @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/map/MapWriter;loadBlockColourFromTexture(Lnet/minecraft/world/level/block/state/BlockState;ZLnet/minecraft/world/level/Level;Lnet/minecraft/core/Registry;Lnet/minecraft/core/BlockPos;)I")},
             method = {"getPixelColours"},
             remap = false)
-    private int eclipticseasons$getPixelColours2(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    private int eclipticseasons_multimodpatch$getPixelColours2(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
         if (XWM.Config.enable.get()) {
             MapColor mapColor = MapColorReplacer.getTopSnowColor(world, state, mutableGlobalPos);
             if (mapColor != null) {
@@ -49,7 +49,7 @@ public abstract class MixinMapPixel {
     @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/map/biome/BlockTintProvider;getBiomeColor(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;ZLxaero/map/region/MapTile;I)I")},
             method = {"getPixelColours"},
             remap = false)
-    private int eclipticseasons$getPixelColours3(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    private int eclipticseasons_multimodpatch$getPixelColours3(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
         if (XWM.Config.enable.get()) {
             MapColor mapColor = MapColorReplacer.getTopSnowColor(world, state, mutableGlobalPos);
             if (mapColor != null) {

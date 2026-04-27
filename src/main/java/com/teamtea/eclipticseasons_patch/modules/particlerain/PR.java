@@ -22,15 +22,15 @@ public class PR implements IESModPatch {
     public static class Config {
 
         public static ForgeConfigSpec.BooleanValue enable;
-        public static ForgeConfigSpec.BooleanValue fixSand;
+        public static ForgeConfigSpec.BooleanValue changeAmount;
 
         public static void load(ForgeConfigSpec.Builder builder) {
             builder.comment(LangUtil.getModName(MOD_ID)).push(MOD_ID);
             enable = builder
                     .define("Enable", true);
-            fixSand = builder
-                    .comment("When it rains in desert biomes, replace it with a sandstorm.")
-                    .define("FixSand", true);
+            changeAmount = builder
+                    .comment("Change the amount of particles when raining.")
+                    .worldRestart().define("ChangeAmount", true);
             builder.pop();
         }
     }

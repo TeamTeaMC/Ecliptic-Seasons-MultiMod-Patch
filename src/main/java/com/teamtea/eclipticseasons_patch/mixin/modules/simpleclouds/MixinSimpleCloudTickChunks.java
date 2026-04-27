@@ -17,7 +17,7 @@ public class MixinSimpleCloudTickChunks {
             method = {"rainAndSnowVanillaCompatibility"},
             at = @At(value = "HEAD"),
             cancellable = true)
-    private static void eclipticseasons$rainAndSnowVanillaCompatibility(CallbackInfo ci) {
+    private static void eclipticseasons_multimodpatch$rainAndSnowVanillaCompatibility(CallbackInfo ci) {
         if (SC.Config.enable.get() && !CommonConfig.Temperature.snowDown.get()) {
             ci.cancel();
         }

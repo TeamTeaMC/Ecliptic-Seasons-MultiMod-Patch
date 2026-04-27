@@ -32,7 +32,7 @@ public abstract class MixinPFSolver {
             require = 0,
             method = {
                     "findAssociation(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/AABB;)Leu/ha3/presencefootsteps/world/Association;"})
-    public void eclipticseasons$findAssociation_check_if_snow(Entity entity, BlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Local(ordinal = 0) LocalRef<BlockState> stateLocalRef) {
+    public void eclipticseasons_multimodpatch$findAssociation_check_if_snow(Entity entity, BlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Local(ordinal = 0) LocalRef<BlockState> stateLocalRef) {
         if (PF.Config.enable.get() && stateLocalRef.get().blocksMotion()
                 && EclipticSeasonsApi.getInstance().isSnowyBlock(entity.level(), stateLocalRef.get(), pos))
             stateLocalRef.set(Blocks.SNOW.defaultBlockState());

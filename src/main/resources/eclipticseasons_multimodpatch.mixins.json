@@ -28,6 +28,7 @@
     "modules.journeymap.MixinBlockMD",
     "modules.journeymap.MixinMapPlayerTask",
     "modules.particlerain.MixinWeatherParticleSpawner",
+    "modules.particlerain.MixinWeatherRendererMixin",
     "modules.presencefootsteps.MixinPFSolver",
     "modules.simpleclouds.MixinSimpleCloudWorldEffects",
     "modules.yuushya.MixinBundle$ExtraModelManagers"

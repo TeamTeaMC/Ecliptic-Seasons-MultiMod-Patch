@@ -19,7 +19,7 @@ public abstract class MixinFishingHookLogic {
             at = {@At(value = "HEAD")},
             method = {"lambda$startStardewMinigame$4"},
             remap = false, cancellable = true)
-    private static void eclipticseasons$startStardewMinigame(ServerPlayer player, FishingHookLogic cap, CallbackInfoReturnable<Boolean> cir) {
+    private static void eclipticseasons_multimodpatch$startStardewMinigame(ServerPlayer player, FishingHookLogic cap, CallbackInfoReturnable<Boolean> cir) {
         if (SF.Hook.shouldCloseGame(player)) {
             cir.setReturnValue(true);
         }

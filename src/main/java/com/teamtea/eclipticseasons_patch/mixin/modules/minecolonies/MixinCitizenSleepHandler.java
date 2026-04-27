@@ -30,7 +30,7 @@ public abstract class MixinCitizenSleepHandler {
             ordinal = 1)},
             method = {"shouldGoSleep"},
             remap = false)
-    private void eclipticseasons$shouldGoSleep_checkTime(CallbackInfoReturnable<Boolean> cir,
+    private void eclipticseasons_multimodpatch$shouldGoSleep_checkTime(CallbackInfoReturnable<Boolean> cir,
                                              @Local(ordinal = 1) LocalDoubleRef localDoubleRef) {
         if (MCC.Config.enable.get() && CommonConfig.Season.daylightChange.get()) {
             localDoubleRef.set(localDoubleRef.get() + MCC.Hook.getGoSleepOffset(citizen.level()));

@@ -21,7 +21,7 @@ public abstract class MixinBiomeEnvironment {
     //         method = {"<init>(Lteam/creative/ambientsounds/engine/AmbientEngine;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lteam/creative/ambientsounds/condition/AmbientVolume;)V"}
     //         // , remap = false
     // )
-    // private boolean eclipticseasons$isRaining(Level instance, Operation<Boolean> original, @Local BlockPos.MutableBlockPos mutableBlockPos) {
+    // private boolean eclipticseasons_multimodpatch$isRaining(Level instance, Operation<Boolean> original, @Local BlockPos.MutableBlockPos mutableBlockPos) {
     //     if (AS6.Config.enable.get()) {
     //         return EclipticSeasonsApi.getInstance().isRainingOrSnowing(instance,mutableBlockPos);
     //     }
@@ -32,7 +32,7 @@ public abstract class MixinBiomeEnvironment {
             method = {"<init>(Lteam/creative/ambientsounds/engine/AmbientEngine;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lteam/creative/ambientsounds/condition/AmbientVolume;)V"}
             // ,remap = false
     )
-    private Biome.Precipitation eclipticseasons$getPrecipitationAt(Biome instance, BlockPos pPos, Operation<Biome.Precipitation> original,@Local(argsOnly = true) Level level) {
+    private Biome.Precipitation eclipticseasons_multimodpatch$getPrecipitationAt(Biome instance, BlockPos pPos, Operation<Biome.Precipitation> original,@Local(argsOnly = true) Level level) {
         if (AS6.Config.enable.get()) {
             return EclipticSeasonsApi.getInstance().getPrecipitationAt(level,pPos);
         }
