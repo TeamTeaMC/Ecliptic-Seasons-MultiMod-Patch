@@ -30,7 +30,7 @@ public class PR implements IESModPatch {
                     .gameRestart().define("Enable", true);
             changeAmount = builder
                     .comment("Change the amount of particles when raining.")
-                    .gameRestart().define("ChangeAmount", true);
+                    .worldRestart().define("ChangeAmount", true);
             builder.pop();
         }
     }
