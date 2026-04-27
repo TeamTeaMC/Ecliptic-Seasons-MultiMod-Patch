@@ -28,7 +28,7 @@ public abstract class MixinBundle {
         // @WrapOperation(at = {@At(value = "INVOKE",
         //         target = "Lnet/minecraft/client/renderer/block/model/BakedQuad;getDirection()Lnet/minecraft/core/Direction;")},
         //          method = {"makeSnowyBakedQuads"})
-        // private static Direction es_patch$makeSnowyBakedQuads2
+        // private static Direction eclipticseasons_multimodpatch$makeSnowyBakedQuads2
         //         (BakedQuad instance, Operation<Direction> original) {
         //     int[] vertices = instance.getVertices();
         //

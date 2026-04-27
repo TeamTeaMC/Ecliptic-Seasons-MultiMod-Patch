@@ -17,7 +17,7 @@ public abstract class MixinSeasonBundle {
     public static abstract class SSeasonsLoadedMixin {
         @Inject(require = 0, at = {@At(value = "HEAD")},
                 remap = false, method = {"isLoaded"}, cancellable = true)
-        private void es_patch$isLoaded(CallbackInfoReturnable<Boolean> cir) {
+        private void eclipticseasons_multimodpatch$isLoaded(CallbackInfoReturnable<Boolean> cir) {
             if (GOETY.Config.fakeSeason.get()) {
                 cir.setReturnValue(true);
             }
@@ -28,7 +28,7 @@ public abstract class MixinSeasonBundle {
     public static abstract class SSeasonsIntegrationMixin {
         @Inject(require = 0, at = {@At(value = "HEAD")},
                 remap = false, method = {"summonSnowVariant"}, cancellable = true)
-        private static void es_patch$summonSnowVariant(Level level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        private static void eclipticseasons_multimodpatch$summonSnowVariant(Level level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
             if (GOETY.Config.fakeSeason.get()) {
                 cir.setReturnValue(EclipticSeasonsApi.getInstance().getPrecipitationAt(level, pos) == Biome.Precipitation.SNOW);
             }
