@@ -26,7 +26,7 @@ public abstract class MixinGenericAttributeMapFactory {
     @Inject(at = {@At(value = "HEAD")},
             method = {"attribute"},
             remap = false)
-    private void eclipticseasons$addSpringCheck(Attribute<?> a, CallbackInfoReturnable<GenericAttributeMapFactory> cir) {
+    private void eclipticseasons_multimodpatch$addSpringCheck(Attribute<?> a, CallbackInfoReturnable<GenericAttributeMapFactory> cir) {
         if (a.key() == RuleKeys.SPRING) {
             this.attributes.add(Attribute.createMulti(ICHook.VALID_TERMS));
             EclipticSeasonsPatch.logger("InControl add a check rule for spring, we here inject our rules for valid terms.");

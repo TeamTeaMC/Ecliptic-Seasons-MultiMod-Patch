@@ -1,7 +1,6 @@
 package com.teamtea.eclipticseasons_patch.modules.particlerain;
 
 import com.teamtea.eclipticseasons.api.util.EclipticUtil;
-import com.teamtea.eclipticseasons.common.core.biome.WeatherManager;
 import com.teamtea.eclipticseasons_patch.api.ESPatch;
 import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import com.teamtea.eclipticseasons_patch.api.LangUtil;
@@ -23,11 +22,15 @@ public class PR implements IESModPatch {
     public static class Config {
 
         public static ModConfigSpec.BooleanValue enable;
+        public static ModConfigSpec.BooleanValue changeAmount;
 
         public static void load(ModConfigSpec.Builder builder) {
             builder.comment(LangUtil.getModName(MOD_ID)).push(MOD_ID);
             enable = builder
                     .gameRestart().define("Enable", true);
+            changeAmount = builder
+                    .comment("Change the amount of particles when raining.")
+                    .gameRestart().define("ChangeAmount", true);
             builder.pop();
         }
     }

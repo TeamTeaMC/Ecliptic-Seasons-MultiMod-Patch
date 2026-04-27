@@ -37,7 +37,7 @@ public abstract class MixinPFSolver {
             remap = false,
             method = {
                     "findAssociation(Leu/ha3/presencefootsteps/world/AssociationPool;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/core/BlockPos$MutableBlockPos;Lnet/minecraft/world/phys/AABB;)Leu/ha3/presencefootsteps/world/Association;"})
-    public void eclipticseasons$findAssociation_check_if_snow(AssociationPool associations, LivingEntity entity, BlockPos.MutableBlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Local(ordinal = 0) LocalRef<BlockState> stateLocalRef, @Share("skipCollisionCheck") LocalBooleanRef ref) {
+    public void eclipticseasons_multimodpatch$findAssociation_check_if_snow(AssociationPool associations, LivingEntity entity, BlockPos.MutableBlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Local(ordinal = 0) LocalRef<BlockState> stateLocalRef, @Share("skipCollisionCheck") LocalBooleanRef ref) {
         if (PF.Config.enable.get() && stateLocalRef.get().blocksMotion()
                 && EclipticSeasonsApi.getInstance().isSnowyBlock(entity.level(), stateLocalRef.get(), pos)) {
             stateLocalRef.set(Blocks.SNOW.defaultBlockState());
@@ -52,7 +52,7 @@ public abstract class MixinPFSolver {
             remap = false,
             method = {
                     "findAssociation(Leu/ha3/presencefootsteps/world/AssociationPool;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/core/BlockPos$MutableBlockPos;Lnet/minecraft/world/phys/AABB;)Leu/ha3/presencefootsteps/world/Association;"})
-    public void eclipticseasons$findAssociation_add_field(AssociationPool associations, LivingEntity entity, BlockPos.MutableBlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Share("skipCollisionCheck") LocalBooleanRef ref) {
+    public void eclipticseasons_multimodpatch$findAssociation_add_field(AssociationPool associations, LivingEntity entity, BlockPos.MutableBlockPos pos, AABB collider, CallbackInfoReturnable<Association> cir, @Share("skipCollisionCheck") LocalBooleanRef ref) {
         ref.set(false);
     }
 
@@ -63,7 +63,7 @@ public abstract class MixinPFSolver {
             remap = false,
             method = {
                     "findAssociation(Leu/ha3/presencefootsteps/world/AssociationPool;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/core/BlockPos$MutableBlockPos;Lnet/minecraft/world/phys/AABB;)Leu/ha3/presencefootsteps/world/Association;"})
-    public boolean eclipticseasons$findAssociation_skip_checkCollision(PFSolver instance, Level world, BlockState state, BlockPos pos, AABB collider, Operation<Boolean> original, @Share("skipCollisionCheck") LocalBooleanRef ref) {
+    public boolean eclipticseasons_multimodpatch$findAssociation_skip_checkCollision(PFSolver instance, Level world, BlockState state, BlockPos pos, AABB collider, Operation<Boolean> original, @Share("skipCollisionCheck") LocalBooleanRef ref) {
         if (ref.get()) return true;
         return original.call(instance, world, state, pos, collider);
     }

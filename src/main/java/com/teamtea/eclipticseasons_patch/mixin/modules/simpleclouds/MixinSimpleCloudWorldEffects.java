@@ -23,7 +23,7 @@ public class MixinSimpleCloudWorldEffects {
             method = {"tick"},
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")
     )
-    private Holder<Biome> eclipticseasons$tick_getBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
+    private Holder<Biome> eclipticseasons_multimodpatch$tick_getBiome(ClientLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
         return SC.Config.enable.get() ?
                 MapChecker.getSurfaceBiome(instance, pos) :
                 original.call(instance, pos);
@@ -33,7 +33,7 @@ public class MixinSimpleCloudWorldEffects {
             method = {"tick"},
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;getPrecipitationAt(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/biome/Biome$Precipitation;")
     )
-    private Biome.Precipitation eclipticseasons$tick_getPrecipitationAt(Biome biome, BlockPos pos, Operation<Biome.Precipitation> original) {
+    private Biome.Precipitation eclipticseasons_multimodpatch$tick_getPrecipitationAt(Biome biome, BlockPos pos, Operation<Biome.Precipitation> original) {
         return SC.Config.enable.get() ?
                 EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(Minecraft.getInstance().level, pos) :
                 original.call(biome, pos);
@@ -44,7 +44,7 @@ public class MixinSimpleCloudWorldEffects {
     //         method = {"tick"},
     //         at = @At(value = "INVOKE", target = "Ljava/util/Map;containsKey(Ljava/lang/Object;)Z")
     // )
-    // private boolean eclipticseasons$tick_cancelNone(boolean original, @Local Biome.Precipitation precipitation) {
+    // private boolean eclipticseasons_multimodpatch$tick_cancelNone(boolean original, @Local Biome.Precipitation precipitation) {
     //     if (precipitation == Biome.Precipitation.NONE)
     //         return true;
     //     return original;

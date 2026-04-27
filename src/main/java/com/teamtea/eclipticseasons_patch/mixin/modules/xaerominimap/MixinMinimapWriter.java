@@ -29,7 +29,7 @@ public abstract class MixinMinimapWriter {
     //@ModifyExpressionValue(at = {@At(value = "MIXINEXTRAS:EXPRESSION")},
     //        method = {"getPixelColours"},
     //        remap = false)
-    // private boolean eclipticseasons$getPixelColours(boolean original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    // private boolean eclipticseasons_multimodpatch$getPixelColours(boolean original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
     //    if (XWM.Config.enable.get()
     //            && EclipticSeasonsApi.getInstance().isSnowyBlock(world, state, mutableGlobalPos)) {
     //        return false;
@@ -40,7 +40,7 @@ public abstract class MixinMinimapWriter {
     //@ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/common/minimap/write/MinimapWriter;loadBlockColourFromTexture(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/core/BlockPos;Z)I")},
     //        method = {"calculateBlockColors"},
     //        remap = false)
-    // private int eclipticseasons$getPixelColours2(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    // private int eclipticseasons_multimodpatch$getPixelColours2(int original, @Local(argsOnly = true) Level world, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
     //    if (XWM.Config.enable.get()
     //            && MapColorReplacer.getTopSnowColor(world, state, mutableGlobalPos) instanceof MapColor mapColor) {
     //        return mapColor.col;
@@ -51,7 +51,7 @@ public abstract class MixinMinimapWriter {
     @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/common/minimap/write/MinimapWriter;addBlockColorMultipliers(ILnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I")},
             method = {"calculateBlockColors"},
             remap = false)
-    private int eclipticseasons$getPixelColours3(int original, @Local(argsOnly = true) Level world, @Local BlockState state, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
+    private int eclipticseasons_multimodpatch$getPixelColours3(int original, @Local(argsOnly = true) Level world, @Local BlockState state, @Local(argsOnly = true) BlockPos.MutableBlockPos mutableGlobalPos) {
         if (XMM.Config.enable.get()
                 && MapColorReplacer.getTopSnowColor(world, state, mutableGlobalPos) instanceof MapColor mapColor) {
             return mapColor.col;
@@ -62,7 +62,7 @@ public abstract class MixinMinimapWriter {
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getMapColor(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/MapColor;")},
             method = {"findBlockHelp"},
             remap = false)
-    private MapColor eclipticseasons$hasVanillaColor(BlockState instance, BlockGetter blockGetter, BlockPos blockPos, Operation<MapColor> original) {
+    private MapColor eclipticseasons_multimodpatch$hasVanillaColor(BlockState instance, BlockGetter blockGetter, BlockPos blockPos, Operation<MapColor> original) {
         if (XMM.Config.skipVanillaColorCheck.get()
                 && blockGetter instanceof ServerLevel) {
             return instance.getMapColor(EmptyBlockGetter.INSTANCE, blockPos);

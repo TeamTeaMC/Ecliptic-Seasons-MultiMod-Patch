@@ -21,7 +21,7 @@ public abstract class MixinMapWriter {
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getMapColor(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/MapColor;")},
             method = {"hasVanillaColor"},
             remap = false)
-    private MapColor eclipticseasons$hasVanillaColor(BlockState instance, BlockGetter blockGetter, BlockPos blockPos, Operation<MapColor> original) {
+    private MapColor eclipticseasons_multimodpatch$hasVanillaColor(BlockState instance, BlockGetter blockGetter, BlockPos blockPos, Operation<MapColor> original) {
         if (XWM.Config.skipVanillaColorCheck.get()
                 && blockGetter instanceof ServerLevel) {
             return instance.getMapColor(EmptyBlockGetter.INSTANCE, blockPos);

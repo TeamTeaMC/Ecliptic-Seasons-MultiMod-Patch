@@ -20,7 +20,7 @@ public class MixinWorldHelper {
             method = {"isRainingAt"},
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;isRaining()Z")
     )
-    private static boolean eclipticseasons$isRainingAt_isRaining(Level instance,
+    private static boolean eclipticseasons_multimodpatch$isRainingAt_isRaining(Level instance,
                                                                  Operation<Boolean> original,
                                                                  @Local(argsOnly = true) BlockPos pos) {
         return CS.Config.enable.get()?
@@ -33,7 +33,7 @@ public class MixinWorldHelper {
             method = {"isRainingAt"},
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;getPrecipitationAt(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/biome/Biome$Precipitation;")
     )
-    private static Biome.Precipitation eclipticseasons$isRainingAt_getPrecipitationAt(Biome instance, BlockPos pos, Operation<Biome.Precipitation> original, @Local(argsOnly = true) Level level) {
+    private static Biome.Precipitation eclipticseasons_multimodpatch$isRainingAt_getPrecipitationAt(Biome instance, BlockPos pos, Operation<Biome.Precipitation> original, @Local(argsOnly = true) Level level) {
         return CS.Config.enable.get()?
                 EclipticSeasonsApi.getInstance().getPrecipitationAt(level, pos):
                 original.call(instance, pos);

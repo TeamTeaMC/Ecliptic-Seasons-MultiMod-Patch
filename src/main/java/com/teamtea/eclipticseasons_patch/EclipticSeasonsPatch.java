@@ -3,7 +3,6 @@ package com.teamtea.eclipticseasons_patch;
 
 import com.teamtea.eclipticseasons_patch.config.PatchClientConfig;
 import com.teamtea.eclipticseasons_patch.config.PatchCommonConfig;
-import com.teamtea.eclipticseasons_patch.data.PatchData;
 import com.teamtea.eclipticseasons_patch.modules.PatchCore;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -11,12 +10,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,13 +28,7 @@ public class EclipticSeasonsPatch {
     public static final String NETWORK_VERSION = "1.0";
 
     public static void logger(String x) {
-        // 通过它可以判断是否在哪个服务器
-        // ServerLifecycleHooks.getCurrentServer()
-        // if (!FMLEnvironment.production||General.bool.get())
-        {
-//            LOGGER.debug(x);
-            LOGGER.info(x);
-        }
+        LOGGER.info(x);
     }
 
     public static void logger(Object... x) {
@@ -101,10 +92,6 @@ public class EclipticSeasonsPatch {
 
     public EclipticSeasonsPatch(IEventBus modEventBus, ModContainer modContainer) {
         PatchCore.run();
-        // if(false)
-        // throw new ModLoadingException(List.of(ModLoadingIssue.error().withCause()));
-        modEventBus.addListener(this::gatherData);
-        modEventBus.addListener(this::FMLCommonSetup);
 
         modEventBus.addListener(PatchCommonConfig::UpdateConfig);
         modEventBus.addListener(PatchClientConfig::UpdateConfig);
@@ -119,16 +106,10 @@ public class EclipticSeasonsPatch {
         PatchCore.register(NeoForge.EVENT_BUS, modEventBus);
     }
 
-    @SuppressWarnings("removal")
+
     public static ResourceLocation rl(String id) {
         return ResourceLocation.fromNamespaceAndPath(MODID, id);
     }
 
-    public void FMLCommonSetup(final FMLCommonSetupEvent event) {
-    }
-
-    public void gatherData(final GatherDataEvent event) {
-        PatchData.dataGen(event);
-    }
 
 }

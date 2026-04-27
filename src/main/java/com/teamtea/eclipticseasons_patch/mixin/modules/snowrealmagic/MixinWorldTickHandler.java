@@ -26,7 +26,7 @@ public abstract class MixinWorldTickHandler {
 
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")},
             method = {"tick"})
-    private static Holder<Biome> eclipticseasons$tick_getESBiome(ServerLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
+    private static Holder<Biome> eclipticseasons_multimodpatch$tick_getESBiome(ServerLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
         if (SRM.Config.enable.get()) {
             return MapChecker.getSurfaceBiome(instance, pos);
         }
@@ -35,7 +35,7 @@ public abstract class MixinWorldTickHandler {
 
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lsnownee/snow/util/CommonProxy;coldEnoughToSnow(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Holder;)Z")},
             remap = false, method = {"tick"})
-    private static boolean eclipticseasons$tick_coldEnoughToSnow(LevelReader level, BlockPos pos, Holder<Biome> biome, Operation<Boolean> original) {
+    private static boolean eclipticseasons_multimodpatch$tick_coldEnoughToSnow(LevelReader level, BlockPos pos, Holder<Biome> biome, Operation<Boolean> original) {
         if (SRM.Config.enable.get() && level instanceof ServerLevel serverLevel) {
             var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(serverLevel, pos);
             return es_snowStatus == Biome.Precipitation.SNOW
@@ -48,7 +48,7 @@ public abstract class MixinWorldTickHandler {
             method = {"tick"},
             remap = false,
             cancellable = true)
-    private static void eclipticseasons$tick_shouldSkip(ServerLevel level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private static void eclipticseasons_multimodpatch$tick_shouldSkip(ServerLevel level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (SRM.Config.enable.get() && !CommonConfig.Temperature.snowDown.get()) {
             cir.setReturnValue(false);
         }
@@ -58,7 +58,7 @@ public abstract class MixinWorldTickHandler {
             method = {"tick"},
             remap = false,
             cancellable = true)
-    private static void eclipticseasons$tick_shouldSkip_melt(ServerLevel level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private static void eclipticseasons_multimodpatch$tick_shouldSkip_melt(ServerLevel level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (SRM.Config.enable.get() && !CommonConfig.Temperature.iceMelt.get()) {
             cir.setReturnValue(false);
         }
@@ -67,7 +67,7 @@ public abstract class MixinWorldTickHandler {
 
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;isRaining()Z")},
             method = {"doSnow"})
-    private static boolean eclipticseasons$doSnow_checkSnow(ServerLevel instance, Operation<Boolean> original, @Local(argsOnly = true) BlockPos.MutableBlockPos pos) {
+    private static boolean eclipticseasons_multimodpatch$doSnow_checkSnow(ServerLevel instance, Operation<Boolean> original, @Local(argsOnly = true) BlockPos.MutableBlockPos pos) {
         if (SRM.Config.enable.get()) {
             var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(instance, pos);
             return es_snowStatus == Biome.Precipitation.SNOW;
@@ -77,7 +77,7 @@ public abstract class MixinWorldTickHandler {
 
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")},
             method = {"doMelt"})
-    private static Holder<Biome> eclipticseasons$doMelt_getBiome(ServerLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
+    private static Holder<Biome> eclipticseasons_multimodpatch$doMelt_getBiome(ServerLevel instance, BlockPos pos, Operation<Holder<Biome>> original) {
         if (SRM.Config.enable.get()) {
             return MapChecker.getSurfaceBiome(instance, pos);
         }

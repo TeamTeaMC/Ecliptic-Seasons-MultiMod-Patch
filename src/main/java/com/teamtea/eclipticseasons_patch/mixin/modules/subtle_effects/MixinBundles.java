@@ -23,7 +23,7 @@ public abstract class MixinBundles {
     public static abstract class ExtraFireflyManager {
         @Inject(at = {@At(value = "INVOKE", target = "Ljava/util/Optional;isEmpty()Z",ordinal = 1)},
                 method = {"tick"}, cancellable = true)
-        private static void eclipticseasons$isColdTime(Level level, BlockPos pos, BlockState state, RandomSource random, CallbackInfo ci) {
+        private static void eclipticseasons_multimodpatch$isColdTime(Level level, BlockPos pos, BlockState state, RandomSource random, CallbackInfo ci) {
             if (SE.Config.enable.get() && SE.Hook.maySnow(level, pos)) {
                 ci.cancel();
             }
@@ -38,7 +38,7 @@ public abstract class MixinBundles {
 
         @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;coldEnoughToSnow(Lnet/minecraft/core/BlockPos;)Z")},
                 method = {"entityTick"})
-        private boolean eclipticseasons$isColdTime(Biome instance, BlockPos pos, Operation<Boolean> original) {
+        private boolean eclipticseasons_multimodpatch$isColdTime(Biome instance, BlockPos pos, Operation<Boolean> original) {
             if (SE.Config.enable.get()) {
                 return SE.Hook.maySnow(this.level, pos);
             }

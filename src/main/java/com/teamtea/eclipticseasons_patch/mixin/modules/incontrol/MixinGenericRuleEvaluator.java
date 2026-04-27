@@ -33,7 +33,7 @@ public abstract class MixinGenericRuleEvaluator {
     @Inject(at = {@At(value = "HEAD")},
             method = {"addSpringCheck"},
             remap = false, cancellable = true)
-    private void eclipticseasons$addSpringCheck(Boolean s, CallbackInfo ci) {
+    private void eclipticseasons_multimodpatch$addSpringCheck(Boolean s, CallbackInfo ci) {
         if (IC.Config.enable.get()) {
             this.checks.add((event, query) ->
                     ICHook.validSeasonOrLocal(ICHook.fetchLevel(event, query), query.getPos(event), Season.SPRING, s));
@@ -44,7 +44,7 @@ public abstract class MixinGenericRuleEvaluator {
     @Inject(at = {@At(value = "HEAD")},
             method = {"addSummerCheck"},
             remap = false, cancellable = true)
-    private void eclipticseasons$addSummerCheck(Boolean s, CallbackInfo ci) {
+    private void eclipticseasons_multimodpatch$addSummerCheck(Boolean s, CallbackInfo ci) {
         if (IC.Config.enable.get()) {
             this.checks.add((event, query) ->
                     ICHook.validSeasonOrLocal(ICHook.fetchLevel(event, query), query.getPos(event), Season.SUMMER, s));
@@ -55,7 +55,7 @@ public abstract class MixinGenericRuleEvaluator {
     @Inject(at = {@At(value = "HEAD")},
             method = {"addAutumnCheck"},
             remap = false, cancellable = true)
-    private void eclipticseasons$addAutumnCheck(Boolean s, CallbackInfo ci) {
+    private void eclipticseasons_multimodpatch$addAutumnCheck(Boolean s, CallbackInfo ci) {
         if (IC.Config.enable.get()) {
             this.checks.add((event, query) ->
                     ICHook.validSeasonOrLocal(ICHook.fetchLevel(event, query), query.getPos(event), Season.AUTUMN, s));
@@ -66,7 +66,7 @@ public abstract class MixinGenericRuleEvaluator {
     @Inject(at = {@At(value = "HEAD")},
             method = {"addWinterCheck"},
             remap = false, cancellable = true)
-    private void eclipticseasons$addWinterCheck(Boolean s, CallbackInfo ci) {
+    private void eclipticseasons_multimodpatch$addWinterCheck(Boolean s, CallbackInfo ci) {
         if (IC.Config.enable.get()) {
             this.checks.add((event, query) ->
                     ICHook.validSeasonOrLocal(ICHook.fetchLevel(event, query), query.getPos(event), Season.WINTER, s));
@@ -78,7 +78,7 @@ public abstract class MixinGenericRuleEvaluator {
     @Inject(at = {@At(value = "HEAD")},
             method = {"addChecks"},
             remap = false)
-    private void eclipticseasons$addChecks(AttributeMap map, CallbackInfo ci) {
+    private void eclipticseasons_multimodpatch$addChecks(AttributeMap map, CallbackInfo ci) {
         if (IC.Config.enable.get()) {
             map.consumeAsList(ICHook.VALID_TERMS, (sl) -> {
                 ICHook.ValidTerms validTerms = ICHook.ValidTerms.of(sl);

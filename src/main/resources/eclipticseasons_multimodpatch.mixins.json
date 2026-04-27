@@ -23,6 +23,7 @@
     "modules.ambientsounds.MixinBiomeEnvironment",
     "modules.journeymap.MixinBlockMD",
     "modules.particlerain.MixinWeatherParticleSpawner",
+    "modules.particlerain.MixinWeatherRendererMixin",
     "modules.presencefootsteps.MixinPFSolver",
     "modules.simpleclouds.MixinSimpleCloudWorldEffects",
     "modules.xaerominimap.MixinMinimapWriter",

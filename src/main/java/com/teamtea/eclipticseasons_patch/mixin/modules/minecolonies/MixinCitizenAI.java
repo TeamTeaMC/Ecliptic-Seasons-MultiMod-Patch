@@ -17,7 +17,7 @@ public abstract class MixinCitizenAI {
     @WrapOperation(at = {@At(value = "INVOKE", target = "Lcom/minecolonies/api/util/WorldUtil;isPastTime(Lnet/minecraft/world/level/Level;I)Z")},
             method = {"calculateNextState"},
             remap = false)
-    private boolean eclipticseasons$calculateNextState_isPastTime(Level world, int pastTime, Operation<Boolean> original) {
+    private boolean eclipticseasons_multimodpatch$calculateNextState_isPastTime(Level world, int pastTime, Operation<Boolean> original) {
         if (MCC.Config.enable.get() && CommonConfig.Season.daylightChange.get()) {
             return MCC.Hook.isDay(world);
         }
