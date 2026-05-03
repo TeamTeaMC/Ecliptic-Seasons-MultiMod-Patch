@@ -118,7 +118,7 @@ public abstract class MixinTempBundle {
             // ,"com.ordana.immersive_weathering.util.TemperatureManager"
     }, value = {com.ordana.immersive_weathering.util.TemperatureManager.class})
     public static abstract class WarmRainMixin {
-        @WrapOperation(at = {@At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;warmEnoughToRain(Lnet/minecraft/core/BlockPos;)Z")},
+        @WrapOperation(at = {@At(value = "INVOKE", remap = true, target = "Lnet/minecraft/world/level/biome/Biome;warmEnoughToRain(Lnet/minecraft/core/BlockPos;)Z")},
                 method = {"test",
                         "canSnowMelt"
                 }, remap = false)
