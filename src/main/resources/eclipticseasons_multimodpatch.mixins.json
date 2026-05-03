@@ -40,6 +40,7 @@
     "modules.journeymap.MixinMapPlayerTask",
     "modules.particlerain.MixinWeatherParticleSpawner",
     "modules.particlerain.MixinWeatherRendererMixin",
+    "modules.particlerain.MixinParticleSpawner",
     "modules.presencefootsteps.MixinPFSolver",
     "modules.simpleclouds.MixinSimpleCloudWorldEffects",
     "modules.yuushya.MixinBundle$ExtraModelManagers"
