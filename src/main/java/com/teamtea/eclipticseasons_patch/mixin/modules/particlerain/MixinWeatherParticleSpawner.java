@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class MixinWeatherParticleSpawner {
 
 
-    @WrapOperation(at = {@At(
+    @WrapOperation(require = 0, at = {@At(
             remap = false,
             value = "INVOKE",
             target = "Lnet/minecraft/client/multiplayer/ClientLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")},
@@ -32,7 +32,7 @@ public abstract class MixinWeatherParticleSpawner {
         return MapChecker.getSurfaceBiome(instance, pos);
     }
 
-    @WrapOperation(at = {@At(
+    @WrapOperation(require = 0, at = {@At(
             remap = false,
             value = "INVOKE",
             target = "Lnet/minecraft/world/level/biome/Biome;getPrecipitationAt(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/biome/Biome$Precipitation;")},
@@ -41,7 +41,7 @@ public abstract class MixinWeatherParticleSpawner {
         return PR.Hook.getPrecipitation(instance, pos, level, biomeHolder);
     }
 
-    @WrapOperation(at = {@At(
+    @WrapOperation(require = 0, at = {@At(
             remap = false,
             value = "INVOKE",
             target = "Lnet/minecraft/client/multiplayer/ClientLevel;getBiome(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/Holder;")},
@@ -50,7 +50,7 @@ public abstract class MixinWeatherParticleSpawner {
         return MapChecker.getSurfaceBiome(instance, pos);
     }
 
-    @WrapOperation(at = {@At(
+    @WrapOperation(require = 0, at = {@At(
             remap = false,
             value = "INVOKE",
             target = "Lnet/minecraft/world/level/biome/Biome;getPrecipitationAt(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/biome/Biome$Precipitation;")},
@@ -59,7 +59,7 @@ public abstract class MixinWeatherParticleSpawner {
         return PR.Hook.getPrecipitation(instance, pos, Minecraft.getInstance().level, biomeHolder);
     }
 
-    @WrapOperation(at = {@At(
+    @WrapOperation(require = 0, at = {@At(
             remap = false,
             value = "INVOKE",
             target = "Lnet/minecraft/client/multiplayer/ClientLevel;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V")},
