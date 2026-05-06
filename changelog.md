@@ -1,1 +1,1 @@
-Add fix mixins for Particle Rain (official)
+Update support for xaeroworldmap.

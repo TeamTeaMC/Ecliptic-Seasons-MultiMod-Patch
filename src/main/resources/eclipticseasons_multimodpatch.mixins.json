@@ -15,8 +15,7 @@
     "modules.snowyspirit.MixinSnowySpirit",
     "modules.snowyspirit.MixinSnowySpiritGroundStatus",
     "modules.subtle_effects.MixinBundles$ExtraFireflyManager",
-    "modules.subtle_effects.MixinBundles$ExtraFrostyBreathTicker",
-    "modules.xaeroworldmap.MixinMapWriter"
+    "modules.subtle_effects.MixinBundles$ExtraFrostyBreathTicker"
   ],
   "client": [
     "modules.ambientsounds.MixinAmbientEnvironment",
