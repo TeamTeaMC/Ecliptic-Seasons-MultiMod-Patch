@@ -188,7 +188,7 @@ dependencies {
     compileOnly "curse.maven:pretty-rain-1163800:6347978"
     runtimeOnly "curse.maven:pretty-rain-1163800:6347978"
 
-    compileOnly ("maven.modrinth:particle-rain:v4-beta.9+1.21.1-neoforge")
+    compileOnly("maven.modrinth:particle-rain:v4-beta.9+1.21.1-neoforge")
 
 
     compileOnly("curse.maven:snowy-spirit-566142:5983882")
@@ -267,6 +267,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
             loader_version_range   : loader_version_range,
             mod_id                 : mod_id,
             mod_name               : mod_name,
