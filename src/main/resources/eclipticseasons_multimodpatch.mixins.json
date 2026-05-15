@@ -20,6 +20,7 @@
     "modules.immersive_weathering.MixinTempBundle$WarmRainMixin",
     "modules.incontrol.MixinGenericAttributeMapFactory",
     "modules.incontrol.MixinGenericRuleEvaluator",
+    "modules.journeymap.MixinForgeChunkEvents",
     "modules.minecolonies.MixinCitizenAI",
     "modules.minecolonies.MixinCitizenSleepHandler",
     "modules.simpleclouds.MixinSimpleCloudTickChunks",
@@ -38,9 +39,9 @@
     "modules.immersive_weathering.MixinTempBundle$MixinClientIceBlockOverride",
     "modules.journeymap.MixinBlockMD",
     "modules.journeymap.MixinMapPlayerTask",
+    "modules.particlerain.MixinParticleSpawner",
     "modules.particlerain.MixinWeatherParticleSpawner",
     "modules.particlerain.MixinWeatherRendererMixin",
-    "modules.particlerain.MixinParticleSpawner",
     "modules.presencefootsteps.MixinPFSolver",
     "modules.simpleclouds.MixinSimpleCloudWorldEffects",
     "modules.yuushya.MixinBundle$ExtraModelManagers"
