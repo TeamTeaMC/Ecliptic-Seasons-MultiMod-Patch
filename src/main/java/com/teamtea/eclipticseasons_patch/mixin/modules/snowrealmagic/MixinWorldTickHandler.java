@@ -7,6 +7,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.teamtea.eclipticseasons.api.EclipticSeasonsApi;
 import com.teamtea.eclipticseasons.api.constant.tag.ClimateTypeBiomeTags;
 import com.teamtea.eclipticseasons.common.core.map.MapChecker;
+import com.teamtea.eclipticseasons.common.handler.CustomRandomTickHandler;
 import com.teamtea.eclipticseasons.config.CommonConfig;
 import com.teamtea.eclipticseasons_patch.modules.snowrealmagic.SRM;
 import net.minecraft.core.BlockPos;
@@ -39,7 +40,7 @@ public abstract class MixinWorldTickHandler {
         if (SRM.Config.enable.get() && level instanceof ServerLevel serverLevel) {
             var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(serverLevel, pos);
             return es_snowStatus == Biome.Precipitation.SNOW
-                    || (CommonConfig.Temperature.waterFreezesInFrozenBiomes.get() && biome.is(ClimateTypeBiomeTags.EXTREME_COLD));
+                    || (CommonConfig.Temperature.waterFreezesInFrozenBiomes.get() && CustomRandomTickHandler.isColdBiome(serverLevel,biome));
         }
         return original.call(level, pos, biome);
     }

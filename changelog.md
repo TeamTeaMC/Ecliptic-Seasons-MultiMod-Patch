@@ -1,1 +1,0 @@
-Update support for xaeroworldmap.
