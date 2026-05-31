@@ -5,7 +5,7 @@ import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import com.teamtea.eclipticseasons_patch.api.LangUtil;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-@ESPatch(mods = SRM.MOD_ID, esVersion = "0.12.5.4",minVersions = "10.7.0")
+@ESPatch(mods = SRM.MOD_ID, esVersion = "0.13.0-rc-9",minVersions = "10.7.0")
 public class SRM implements IESModPatch {
     public static final String MOD_ID = "snowrealmagic";
 

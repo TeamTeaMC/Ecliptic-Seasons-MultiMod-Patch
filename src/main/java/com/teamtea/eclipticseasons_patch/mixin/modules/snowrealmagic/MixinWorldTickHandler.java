@@ -41,7 +41,7 @@ public abstract class MixinWorldTickHandler {
         if (SRM.Config.enable.get()&& level instanceof Level l) {
             var es_snowStatus = EclipticSeasonsApi.getInstance().getCurrentPrecipitationAt(l, pos);
             return es_snowStatus == Biome.Precipitation.SNOW
-                    || CustomRandomTickHandler.isColdBiome(l, biome.value());
+                    || CustomRandomTickHandler.isColdBiome(l, biome);
         }
         return original.call(level, pos, biome);
     }
