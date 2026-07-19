@@ -1,1 +1,1 @@
-Update support for xaeroworldmap.
+Update support for xaeroworldmap 1.44.2.

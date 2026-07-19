@@ -45,7 +45,7 @@ public abstract class MixinMapPixel {
         return original;
     }
 
-    @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/map/MapWriter;loadBlockColourFromTexture(Lnet/minecraft/world/level/block/state/BlockState;ZLnet/minecraft/world/level/Level;Lnet/minecraft/core/Registry;Lnet/minecraft/core/BlockPos;)I")},
+    @ModifyExpressionValue(at = {@At(value = "INVOKE", target = "Lxaero/lib/client/level/block/BlockTextureColorUtils;getBlockTextureColor(Lnet/minecraft/world/level/block/state/BlockState;ZLnet/minecraft/world/level/Level;Lnet/minecraft/core/Registry;Lnet/minecraft/core/BlockPos;)I")},
             method = {"getPixelColours"},
             remap = false)
     private int eclipticseasons_multimodpatch$getPixelColours_base(
