@@ -249,6 +249,8 @@ dependencies {
 
     compileOnly("maven.modrinth:subtle-effects:conRdzcK")
 
+    implementation("maven.modrinth:grassier-grass:hWKkBn3u")
+
     println("----Scan runtimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
         def fileName = file.name
