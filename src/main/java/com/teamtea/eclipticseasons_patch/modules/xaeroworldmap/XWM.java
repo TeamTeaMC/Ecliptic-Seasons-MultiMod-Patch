@@ -5,7 +5,7 @@ import com.teamtea.eclipticseasons_patch.api.IESModPatch;
 import com.teamtea.eclipticseasons_patch.api.LangUtil;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-@ESPatch(mods = XWM.MOD_ID)
+@ESPatch(mods = XWM.MOD_ID, minVersions = "1.44.2")
 public class XWM implements IESModPatch {
     public static final String MOD_ID = "xaeroworldmap";
 
