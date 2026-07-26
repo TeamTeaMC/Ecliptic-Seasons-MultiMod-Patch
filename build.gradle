@@ -80,7 +80,7 @@ minecraft {
             // use for logger control
             property 'forgegradle.runs.dev', 'true'
 
-            jvmArgs "-Xmx2000M"
+            jvmArgs "-Xmx3000M"
 
             jvmArg "-XX:+AllowEnhancedClassRedefinition"
 
@@ -317,7 +317,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:stardew-fishing-1066037:6851718")
 
     compileOnly fg.deobf("curse.maven:xaeros-minimap-263420:6778028")
-    compileOnly fg.deobf("curse.maven:xaeros-world-map-317780:8449908")
+    implementation fg.deobf("curse.maven:xaeros-world-map-317780:8449908")
 
     compileOnly fg.deobf("curse.maven:snow-real-magic-308663:7472648")
     compileOnly fg.deobf("curse.maven:kiwi-303657:7514218")
