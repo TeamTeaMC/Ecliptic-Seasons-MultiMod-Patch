@@ -1,1 +1,1 @@
-Add snowy grass color for Grassier Grass.
+- Train in the Snow Country (Create).

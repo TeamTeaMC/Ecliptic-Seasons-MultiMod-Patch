@@ -20,6 +20,10 @@
   "client": [
     "modules.ambientsounds.MixinAmbientEnvironment",
     "modules.ambientsounds.MixinBiomeEnvironment",
+    "modules.create.MixinContraptionEntityRenderer",
+    "modules.create.AccessorClientContraption",
+    "modules.create.MixinBakedModelBufferer",
+    "modules.create.MixinContraptionVisual",
     "modules.grassiergrass.MixinGrassSection",
     "modules.grassiergrass.MixinGrassSectionBuilder",
     "modules.grassiergrass.MixinGrassSectionCache",
