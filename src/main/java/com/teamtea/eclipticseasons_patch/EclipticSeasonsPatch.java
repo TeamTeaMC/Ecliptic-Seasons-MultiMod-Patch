@@ -1,10 +1,13 @@
 package com.teamtea.eclipticseasons_patch;
 
 
+import com.teamtea.eclipticseasons_patch.client.MultiModPatchScreenDefinition;
 import com.teamtea.eclipticseasons_patch.config.PatchClientConfig;
 import com.teamtea.eclipticseasons_patch.config.PatchCommonConfig;
 import com.teamtea.eclipticseasons_patch.modules.PatchCore;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,6 +17,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import net.minecraftforge.fml.loading.FMLLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -105,7 +110,13 @@ public class EclipticSeasonsPatch {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PatchCommonConfig.COMMON_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, PatchClientConfig.CLIENT_CONFIG);
 
-
+        if (FMLLoader.getDist() == Dist.CLIENT) {
+            try {
+                Class.forName("com.teamtea.eclipticseasons.compat.eclipticseasons_bundles.client.BundlesScreenDefinition");
+                ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory(MultiModPatchScreenDefinition.INSTANCE::create));
+            } catch (ClassNotFoundException ignored) {
+            }
+        }
         PatchCore.register(MinecraftForge.EVENT_BUS, modEventBus);
     }
 

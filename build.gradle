@@ -242,7 +242,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:jei-238222:5846810")
     implementation fg.deobf("curse.maven:jade-324717:4654448")
-    implementation fg.deobf("curse.maven:ecliptic-seasons-1118306:8158319")
+    implementation fg.deobf("curse.maven:ecliptic-seasons-1118306:8798549")
 
     implementation fg.deobf("curse.maven:immersive-weathering-forge-592449:6116941")
 
