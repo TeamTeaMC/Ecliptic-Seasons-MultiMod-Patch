@@ -1,6 +1,7 @@
 package com.teamtea.eclipticseasons_patch;
 
 
+import com.teamtea.eclipticseasons_patch.client.MultiModPatchScreenDefinition;
 import com.teamtea.eclipticseasons_patch.config.PatchClientConfig;
 import com.teamtea.eclipticseasons_patch.config.PatchCommonConfig;
 import com.teamtea.eclipticseasons_patch.modules.PatchCore;
@@ -99,9 +100,14 @@ public class EclipticSeasonsPatch {
         modContainer.registerConfig(ModConfig.Type.COMMON, PatchCommonConfig.COMMON_CONFIG);
         modContainer.registerConfig(ModConfig.Type.CLIENT, PatchClientConfig.CLIENT_CONFIG);
 
-        if (FMLLoader.getDist() == Dist.CLIENT)
-            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-
+        if (FMLLoader.getDist() == Dist.CLIENT) {
+            try {
+                Class.forName("com.teamtea.eclipticseasons.compat.eclipticseasons_bundles.client.BundlesScreenDefinition");
+                modContainer.registerExtensionPoint(IConfigScreenFactory.class, MultiModPatchScreenDefinition.INSTANCE::create);
+            } catch (ClassNotFoundException ignored) {
+                modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+            }
+        }
 
         PatchCore.register(NeoForge.EVENT_BUS, modEventBus);
     }

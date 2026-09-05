@@ -4,5 +4,9 @@
   "task.eclipticseasons_multimodpatch.clean_snow": "Clean Snow",
   "task.eclipticseasons_multimodpatch.clean_snow.condition.broom_work": "Snow would fall in world.",
   "task.eclipticseasons_multimodpatch.clean_snow.condition.has_broom": "Has Broom",
-  "task.eclipticseasons_multimodpatch.clean_snow.desc": "Applied to snow-covered blocks from Ecliptic Season"
+  "task.eclipticseasons_multimodpatch.clean_snow.desc": "Applied to snow-covered blocks from Ecliptic Season",
+  "eclipticseasons_multimodpatch.options.title": "MultiMod Patch",
+  "eclipticseasons_multimodpatch.options.all": "All",
+  "eclipticseasons_multimodpatch.options.all.tooltip": "Displays every available compatibility setting.",
+  "eclipticseasons_multimodpatch.configuration.Enable": "Enable"
 }

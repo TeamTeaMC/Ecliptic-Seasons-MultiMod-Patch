@@ -4,5 +4,9 @@
   "task.eclipticseasons_multimodpatch.clean_snow": "扫雪",
   "task.eclipticseasons_multimodpatch.clean_snow.condition.broom_work": "雪会落到世界上",
   "task.eclipticseasons_multimodpatch.clean_snow.condition.has_broom": "持有扫帚",
-  "task.eclipticseasons_multimodpatch.clean_snow.desc": "适用于节气的覆雪方块"
+  "task.eclipticseasons_multimodpatch.clean_snow.desc": "适用于节气的覆雪方块",
+  "eclipticseasons_multimodpatch.options.title": "多维修补配置",
+  "eclipticseasons_multimodpatch.options.all": "全部配置",
+  "eclipticseasons_multimodpatch.options.all.tooltip": "显示所有可用的模组兼容设置。",
+  "eclipticseasons_multimodpatch.configuration.Enable": "启用"
 }
